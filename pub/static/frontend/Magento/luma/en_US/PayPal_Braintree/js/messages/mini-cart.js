@@ -1,0 +1,1 @@
+/usr/share/nginx/html/magento2/vendor/paypal/module-braintree-core/view/frontend/web/js/messages/mini-cart.js

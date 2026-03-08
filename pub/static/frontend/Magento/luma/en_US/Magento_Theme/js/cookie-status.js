@@ -1,0 +1,1 @@
+/usr/share/nginx/html/magento2/vendor/magento/module-theme/view/frontend/web/js/cookie-status.js

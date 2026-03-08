@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/config.xsd">
+    <default>
+        <apiconnector>
+            <general>
+                <enabled>0</enabled>
+                <api_key></api_key>
+            </general>
+        </apiconnector>
+    </default>
+</config>

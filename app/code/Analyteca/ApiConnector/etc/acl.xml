@@ -6,7 +6,8 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Analyteca_ApiConnector::config" title="API Connector Config" sortOrder="10" />
+				<resource id="Analyteca_ApiConnector::config" title="API Connector Config" sortOrder="10" />
+				<resource id="Analyteca_ApiConnector::summary" title="Insights Summary API" sortOrder="20" />
                         </resource>
                     </resource>
                 </resource>

@@ -9,94 +9,105 @@ use Analyteca\ApiConnector\Api\Data\SummaryInterface;
 
 class Summary extends DataObject implements SummaryInterface
 {
-	public function getFrom(): ?string
-	{
-		$value = $this->getData(self::FROM);
-		return $value !== null ? (string)$value : null;
-	}
-	
-	public function setFrom(?string $from): SummaryInterface
-	{
-		return $this->setData(self::FROM, $from);
-	}
+    public function getFrom(): ?string
+    {
+        $value = $this->getData(self::FROM);
+        return $value !== null ? (string)$value : null;
+    }
 
-	public function getTo(): ?string
-	{
-		$value = $this->getData(self::TO);
-		return $value !== null ? (string)$value : null;
-	}
-	public function setTo(?string $to): SummaryInterface
-	{
-		return $this->setData(self::TO, $to);
-	}
+    public function setFrom(?string $from): SummaryInterface
+    {
+        $this->setData(self::FROM, $from);
+        return $this;
+    }
 
-	public function getTotalOrders(): int
-	{
-		return (int)$this->getData(self::TOTAL_ORDERS);
-	}
+    public function getTo(): ?string
+    {
+        $value = $this->getData(self::TO);
+        return $value !== null ? (string)$value : null;
+    }
 
-	public function setTotalOrders(int $totalOrders): SummaryInterface
-	{
-		return $this->setData(self::TOTAL_ORDERS, $totalOrders);
-	}
+    public function setTo(?string $to): SummaryInterface
+    {
+        $this->setData(self::TO, $to);
+        return $this;
+    }
 
-	public function getTotalRevenue(): float
-	{
-		return (float)$this->getData(self::TOTAL_REVENUE);
-	}
+    public function getTotalOrders(): int
+    {
+        return (int)$this->getData(self::TOTAL_ORDERS);
+    }
 
-	public function setTotalRevenue(float $totalRevenue): SummaryInterface 
-	{
-		return $this->setData(self::TOTAL_REVENUE, $totalRevenue);
-	}
+    public function setTotalOrders(int $totalOrders): SummaryInterface
+    {
+        $this->setData(self::TOTAL_ORDERS, $totalOrders);
+        return $this;
+    }
 
-	public function getAverageOrderValue(): float
-	{
-		return (float)$this->getData(self::AVERAGE_ORDER_VALUE);
-	}
-	public function setAverageOrderValue(float $averageOrderValue): SummaryInterface
-	{
-		return $this->setData(self::AVERAGE_ORDER_VALUE, $averageOrderValue);
-	}
+    public function getTotalRevenue(): float
+    {
+        return (float)$this->getData(self::TOTAL_REVENUE);
+    }
 
-	public function getCurrency(): string
-	{
-		return (string)$this->getData(self::CURRENCY);
-	}
+    public function setTotalRevenue(float $totalRevenue): SummaryInterface
+    {
+        $this->setData(self::TOTAL_REVENUE, $totalRevenue);
+        return $this;
+    }
 
-	public function setCurrency(string $currency): SummaryInterface
-	{
-		return $this->setData(self::CURRENCY, $currency);
-	}
+    public function getAverageOrderValue(): float
+    {
+        return (float)$this->getData(self::AVERAGE_ORDER_VALUE);
+    }
 
-	public function getStatusBreakdown(): array
-	{
-		return (array)$this->getData(self::STATUS_BREAKDOWN);
-	}
+    public function setAverageOrderValue(float $averageOrderValue): SummaryInterface
+    {
+        $this->setData(self::AVERAGE_ORDER_VALUE, $averageOrderValue);
+        return $this;
+    }
 
-	public function setStatusBreakdown(array $statusBreakdown): SummaryInterface
-	{
-		return $this-setData(self::STATUS_BREAKDOWN, $statusBreakdown);
-	}
+    public function getCurrency(): string
+    {
+        return (string)$this->getData(self::CURRENCY);
+    }
 
-	public function getLastSyncedAt(): ?string
-	{
-		$value = $this->getData(self::LAST_SYNCED_AT);
-		return $value !== null ? (string)$value : null;
-	}
+    public function setCurrency(string $currency): SummaryInterface
+    {
+        $this->setData(self::CURRENCY, $currency);
+        return $this;
+    }
 
-	public function setLastSyncedAt(?string $lastSyncedAt): SummaryInterface
-	{
-		return $this->setData(self::LAST_SYNCED_AT, $lastSyncedAt);
-	}
+    public function getStatusBreakdown(): array
+    {
+        return (array)$this->getData(self::STATUS_BREAKDOWN);
+    }
 
-	public function getSource(): string
-	{
-		return (string)$this->getData(self::SOURCE);
-	}
+    public function setStatusBreakdown(array $statusBreakdown): SummaryInterface
+    {
+        $this->setData(self::STATUS_BREAKDOWN, $statusBreakdown);
+        return $this;
+    }
 
-	public function setSource(string $source): SummaryInterface
-	{
-		return $this->setData(self::SOURCE, $source);
-	}
+    public function getLastSyncedAt(): ?string
+    {
+        $value = $this->getData(self::LAST_SYNCED_AT);
+        return $value !== null ? (string)$value : null;
+    }
+
+    public function setLastSyncedAt(?string $lastSyncedAt): SummaryInterface
+    {
+        $this->setData(self::LAST_SYNCED_AT, $lastSyncedAt);
+        return $this;
+    }
+
+    public function getSource(): string
+    {
+        return (string)$this->getData(self::SOURCE);
+    }
+
+    public function setSource(string $source): SummaryInterface
+    {
+        $this->setData(self::SOURCE, $source);
+        return $this;
+    }
 }

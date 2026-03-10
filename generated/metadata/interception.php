@@ -20667,6 +20667,7 @@
   'Test15\\Test15\\Model\\ResourceModel\\Note' => false,
   'Test15\\Test15\\Model\\ResourceModel\\Note\\Collection' => true,
   'Test15\\Test15\\Model\\ResourceModel\\Note\\Collection\\Interceptor' => false,
+  'Test16\\Test16\\Setup\\Patch\\Data\\AddBrandLabelProductAttribute' => false,
   'Throwable' => false,
   'Traversable' => false,
   'UnexpectedValueException' => false,

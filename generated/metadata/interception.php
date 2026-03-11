@@ -20668,6 +20668,7 @@
   'Test15\\Test15\\Model\\ResourceModel\\Note\\Collection' => true,
   'Test15\\Test15\\Model\\ResourceModel\\Note\\Collection\\Interceptor' => false,
   'Test16\\Test16\\Setup\\Patch\\Data\\AddBrandLabelProductAttribute' => false,
+  'Test16\\Test16\\Setup\\Patch\\Data\\AddLoyaltyCodeCustomerAttribute' => false,
   'Throwable' => false,
   'Traversable' => false,
   'UnexpectedValueException' => false,

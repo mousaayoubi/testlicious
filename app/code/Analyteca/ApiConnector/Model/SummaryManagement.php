@@ -54,8 +54,9 @@ class SummaryManagement implements SummaryManagementInterface
                 'total_orders' => new Expression('COUNT(so.entity_id)'),
                 'total_revenue' => new Expression('COALESCE(SUM(so.base_grand_total), 0)')
             ]
-        )->group('so.status')
-         ->order('total_orders DESC');
+        )
+            ->group('so.status')
+            ->order('total_orders DESC');
 
         $this->applyFilters($breakdownSelect, $from, $to, $normalizedStatuses);
         $breakdownRows = $connection->fetchAll($breakdownSelect) ?: [];
@@ -69,6 +70,31 @@ class SummaryManagement implements SummaryManagementInterface
             ];
         }
 
+        $timeseriesSelect = $connection->select()->from(
+    ['so' => $tableName],
+    [
+        'date' => new Expression('DATE(so.created_at)'),
+        'total_orders' => new Expression('COUNT(so.entity_id)'),
+        'total_revenue' => new Expression('COALESCE(SUM(so.base_grand_total), 0)'),
+        'average_order_value' => new Expression('COALESCE(AVG(so.base_grand_total), 0)')
+    ]
+)
+    ->group(new Expression('DATE(so.created_at)'))
+    ->order(new Expression('DATE(so.created_at) ASC'));
+
+$this->applyFilters($timeseriesSelect, $from, $to, $normalizedStatuses);
+$timeseriesRows = $connection->fetchAll($timeseriesSelect) ?: [];
+
+$timeseries = [];
+foreach ($timeseriesRows as $row) {
+    $timeseries[] = [
+        'date' => (string) ($row['date'] ?? ''),
+        'total_orders' => (int) ($row['total_orders'] ?? 0),
+        'total_revenue' => round((float) ($row['total_revenue'] ?? 0), 2),
+        'average_order_value' => round((float) ($row['average_order_value'] ?? 0), 2),
+    ];
+}
+
         $currency = (string) ($this->storeManager->getStore()->getBaseCurrencyCode() ?: 'USD');
 
         $summary = $this->summaryFactory->create();
@@ -79,6 +105,7 @@ class SummaryManagement implements SummaryManagementInterface
         $summary->setAverageOrderValue(round((float) ($summaryRow['average_order_value'] ?? 0), 2));
         $summary->setCurrency($currency);
         $summary->setStatusBreakdown($statusBreakdown);
+        $summary->setTimeseries($timeseries);
         $summary->setLastSyncedAt(
             isset($summaryRow['last_synced_at']) && $summaryRow['last_synced_at'] !== null
                 ? (string) $summaryRow['last_synced_at']

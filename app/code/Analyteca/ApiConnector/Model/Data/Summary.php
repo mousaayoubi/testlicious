@@ -9,6 +9,8 @@ use Analyteca\ApiConnector\Api\Data\SummaryInterface;
 
 class Summary extends DataObject implements SummaryInterface
 {
+	public const TIMESERIES = 'timeseries';
+
     public function getFrom(): ?string
     {
         $value = $this->getData(self::FROM);
@@ -109,5 +111,15 @@ class Summary extends DataObject implements SummaryInterface
     {
         $this->setData(self::SOURCE, $source);
         return $this;
+    }
+
+    public function getTimeseries(): array
+    {
+	return $this->getData(self::TIMESERIES) ?? [];
+    }
+
+    public function setTimeseries(array $timeseries)
+    {
+	return $this->setData(self::TIMESERIES, $timeseries);
     }
 }

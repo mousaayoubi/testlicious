@@ -114,4 +114,15 @@ interface SummaryInterface
      * @return $this
      */
     public function setSource(string $source): self;
+
+    /**
+     * @return array
+     */
+    public function getTimeseries(): array;
+
+    /**
+     * @param array $timeseries
+     * @return $this
+     */
+    public function setTimeseries(array $timeseries);
 }

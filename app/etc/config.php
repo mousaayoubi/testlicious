@@ -387,6 +387,7 @@ return [
         'PayPal_BraintreeReward' => 1,
         'Test15_Test15' => 1,
         'Test16_Test16' => 1,
-        'Test17_Test17' => 1
+        'Test17_Test17' => 1,
+        'Test18_Test18' => 1
     ]
 ];

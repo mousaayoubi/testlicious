@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Test18\Test18\Api\NoteRepositoryInterface"
+                type="Test18\Test18\Model\NoteRepository"/>
+
+    <preference for="Test18\Test18\Api\Data\NoteInterface"
+                type="Test18\Test18\Model\Note"/>
+</config>

@@ -1,16 +1,1 @@
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-define([
-    './renderer/types',
-    './renderer/layout',
-    '../lib/knockout/bootstrap'
-], function (types, layout) {
-    'use strict';
-
-    return function (data, merge) {
-        types.set(data.types);
-        layout(data.components, undefined, true, merge);
-    };
-});
+/usr/share/nginx/html/magento2/vendor/magento/module-ui/view/base/web/js/core/app.js

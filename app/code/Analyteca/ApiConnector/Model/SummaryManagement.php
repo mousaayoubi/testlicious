@@ -4,169 +4,242 @@ declare(strict_types=1);
 
 namespace Analyteca\ApiConnector\Model;
 
-use DateTime;
-use Magento\Framework\App\ResourceConnection;
-use Magento\Framework\DB\Select;
-use Magento\Framework\DB\Sql\Expression;
-use Magento\Framework\Exception\InputException;
-use Magento\Store\Model\StoreManagerInterface;
-use Analyteca\ApiConnector\Api\Data\SummaryInterface;
 use Analyteca\ApiConnector\Api\SummaryManagementInterface;
-use Analyteca\ApiConnector\Model\Data\SummaryFactory;
+use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\Exception\LocalizedException;
+use Psr\Log\LoggerInterface;
+use Zend_Db_Expr;
 
 class SummaryManagement implements SummaryManagementInterface
 {
+    private ResourceConnection $resource;
+    private LoggerInterface $logger;
+
     public function __construct(
-        private readonly ResourceConnection $resourceConnection,
-        private readonly SummaryFactory $summaryFactory,
-        private readonly StoreManagerInterface $storeManager
+        ResourceConnection $resource,
+        LoggerInterface $logger
     ) {
+        $this->resource = $resource;
+        $this->logger = $logger;
     }
 
-    public function getSummary(
-        ?string $from = null,
-        ?string $to = null,
-        ?string $statuses = null
-    ): SummaryInterface {
+    /**
+     * @param string $from
+     * @param string $to
+     * @return string
+     * @throws LocalizedException
+     */
+    public function getSummary(string $from, string $to): string
+    {
         $this->validateDateRange($from, $to);
-        $normalizedStatuses = $this->normalizeStatuses($statuses);
 
-        $connection = $this->resourceConnection->getConnection();
-        $tableName = $this->resourceConnection->getTableName('sales_order');
+        try {
+            $connection = $this->resource->getConnection();
 
-        $summarySelect = $connection->select()->from(
-            ['so' => $tableName],
-            [
-                'total_orders' => new Expression('COUNT(so.entity_id)'),
-                'total_revenue' => new Expression('COALESCE(SUM(so.base_grand_total), 0)'),
-                'average_order_value' => new Expression('COALESCE(AVG(so.base_grand_total), 0)'),
-                'last_synced_at' => new Expression('MAX(so.updated_at)')
-            ]
-        );
+            $ordersTable = $this->resource->getTableName('sales_order');
+            $orderItemsTable = $this->resource->getTableName('sales_order_item');
 
-        $this->applyFilters($summarySelect, $from, $to, $normalizedStatuses);
-        $summaryRow = $connection->fetchRow($summarySelect) ?: [];
+            $summary = $this->getSummaryTotals($connection, $ordersTable, $from, $to);
+            $timeseries = $this->getTimeseries($connection, $ordersTable, $from, $to);
+            $statusBreakdown = $this->getRevenueByStatus($connection, $ordersTable, $from, $to);
+            $topProducts = $this->getTopProducts($connection, $ordersTable, $orderItemsTable, $from, $to);
 
-        $breakdownSelect = $connection->select()->from(
-            ['so' => $tableName],
-            [
-                'status' => 'so.status',
-                'total_orders' => new Expression('COUNT(so.entity_id)'),
-                'total_revenue' => new Expression('COALESCE(SUM(so.base_grand_total), 0)')
-            ]
-        )
-            ->group('so.status')
-            ->order('total_orders DESC');
-
-        $this->applyFilters($breakdownSelect, $from, $to, $normalizedStatuses);
-        $breakdownRows = $connection->fetchAll($breakdownSelect) ?: [];
-
-        $statusBreakdown = [];
-        foreach ($breakdownRows as $row) {
-            $statusBreakdown[] = [
-                'status' => (string) ($row['status'] ?? ''),
-                'total_orders' => (int) ($row['total_orders'] ?? 0),
-                'total_revenue' => round((float) ($row['total_revenue'] ?? 0), 2),
+            $payload = [
+                'from' => $from,
+                'to' => $to,
+                'revenue' => (float) ($summary['revenue'] ?? 0),
+                'orders' => (int) ($summary['orders'] ?? 0),
+                'aov' => (float) ($summary['aov'] ?? 0),
+                'refunds' => (float) ($summary['refunds'] ?? 0),
+                'timeseries' => array_values($timeseries),
+                'statusBreakdown' => array_values($statusBreakdown),
+                'revenueByStatus' => array_values($statusBreakdown),
+                'topProducts' => array_values($topProducts),
+                'source' => 'Magento',
+                'lastSyncedAt' => gmdate('c'),
             ];
+
+            return json_encode($payload, JSON_UNESCAPED_SLASHES);
+        } catch (\Throwable $e) {
+            $this->logger->error('Analyteca summary API failed', [
+                'from' => $from,
+                'to' => $to,
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            throw new LocalizedException(__('Unable to build analytics summary.'));
+        }
+    }
+
+    private function validateDateRange(string $from, string $to): void
+    {
+        if (!$this->isValidDateOnly($from) || !$this->isValidDateOnly($to)) {
+            throw new LocalizedException(__('Dates must be in YYYY-MM-DD format.'));
         }
 
-        $timeseriesSelect = $connection->select()->from(
-    ['so' => $tableName],
-    [
-        'date' => new Expression('DATE(so.created_at)'),
-        'total_orders' => new Expression('COUNT(so.entity_id)'),
-        'total_revenue' => new Expression('COALESCE(SUM(so.base_grand_total), 0)'),
-        'average_order_value' => new Expression('COALESCE(AVG(so.base_grand_total), 0)')
-    ]
-)
-    ->group(new Expression('DATE(so.created_at)'))
-    ->order(new Expression('DATE(so.created_at) ASC'));
+        $fromTs = strtotime($from . ' 00:00:00');
+        $toTs = strtotime($to . ' 23:59:59');
 
-$this->applyFilters($timeseriesSelect, $from, $to, $normalizedStatuses);
-$timeseriesRows = $connection->fetchAll($timeseriesSelect) ?: [];
+        if ($fromTs === false || $toTs === false) {
+            throw new LocalizedException(__('Invalid date range.'));
+        }
 
-$timeseries = [];
-foreach ($timeseriesRows as $row) {
-    $timeseries[] = [
-        'date' => (string) ($row['date'] ?? ''),
-        'total_orders' => (int) ($row['total_orders'] ?? 0),
-        'total_revenue' => round((float) ($row['total_revenue'] ?? 0), 2),
-        'average_order_value' => round((float) ($row['average_order_value'] ?? 0), 2),
-    ];
-}
+        if ($fromTs > $toTs) {
+            throw new LocalizedException(__('"from" cannot be later than "to".'));
+        }
 
-        $currency = (string) ($this->storeManager->getStore()->getBaseCurrencyCode() ?: 'USD');
+        $diffDays = (int) ceil(($toTs - $fromTs) / 86400);
+        if ($diffDays > 366) {
+            throw new LocalizedException(__('Date range cannot exceed 366 days.'));
+        }
+    }
 
-        $summary = $this->summaryFactory->create();
-        $summary->setFrom($from);
-        $summary->setTo($to);
-        $summary->setTotalOrders((int) ($summaryRow['total_orders'] ?? 0));
-        $summary->setTotalRevenue(round((float) ($summaryRow['total_revenue'] ?? 0), 2));
-        $summary->setAverageOrderValue(round((float) ($summaryRow['average_order_value'] ?? 0), 2));
-        $summary->setCurrency($currency);
-        $summary->setStatusBreakdown($statusBreakdown);
-        $summary->setTimeseries($timeseries);
-        $summary->setLastSyncedAt(
-            isset($summaryRow['last_synced_at']) && $summaryRow['last_synced_at'] !== null
-                ? (string) $summaryRow['last_synced_at']
-                : null
+    private function isValidDateOnly(string $value): bool
+    {
+        return (bool) preg_match('/^\d{4}-\d{2}-\d{2}$/', $value);
+    }
+
+    private function getSummaryTotals(
+        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
+        string $ordersTable,
+        string $from,
+        string $to
+    ): array {
+        $select = $connection->select()
+            ->from(
+                ['so' => $ordersTable],
+                [
+                    'revenue' => new Zend_Db_Expr('COALESCE(SUM(so.base_grand_total), 0)'),
+                    'orders' => new Zend_Db_Expr('COUNT(so.entity_id)'),
+                    'aov' => new Zend_Db_Expr('COALESCE(AVG(so.base_grand_total), 0)'),
+                    'refunds' => new Zend_Db_Expr('COALESCE(SUM(so.base_total_refunded), 0)'),
+                ]
+            )
+            ->where('DATE(so.created_at) >= ?', $from)
+            ->where('DATE(so.created_at) <= ?', $to)
+            ->where('so.state NOT IN (?)', ['canceled']);
+
+        return (array) $connection->fetchRow($select);
+    }
+
+    private function getTimeseries(
+        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
+        string $ordersTable,
+        string $from,
+        string $to
+    ): array {
+        $select = $connection->select()
+            ->from(
+                ['so' => $ordersTable],
+                [
+                    'date' => new Zend_Db_Expr('DATE(so.created_at)'),
+                    'revenue' => new Zend_Db_Expr('COALESCE(SUM(so.base_grand_total), 0)'),
+                    'orders' => new Zend_Db_Expr('COUNT(so.entity_id)'),
+                    'aov' => new Zend_Db_Expr('COALESCE(AVG(so.base_grand_total), 0)'),
+                ]
+            )
+            ->where('DATE(so.created_at) >= ?', $from)
+            ->where('DATE(so.created_at) <= ?', $to)
+            ->where('so.state NOT IN (?)', ['canceled'])
+            ->group(new Zend_Db_Expr('DATE(so.created_at)'))
+            ->order(new Zend_Db_Expr('DATE(so.created_at) ASC'));
+
+        $rows = $connection->fetchAll($select);
+
+        return array_map(
+            static function (array $row): array {
+                return [
+                    'date' => (string) ($row['date'] ?? ''),
+                    'label' => !empty($row['date']) ? date('M d', strtotime((string) $row['date'])) : '',
+                    'revenue' => (float) ($row['revenue'] ?? 0),
+                    'orders' => (int) ($row['orders'] ?? 0),
+                    'aov' => (float) ($row['aov'] ?? 0),
+                ];
+            },
+            $rows
         );
-        $summary->setSource('custom_magento_api');
-
-        return $summary;
     }
 
-    private function applyFilters(
-        Select $select,
-        ?string $from,
-        ?string $to,
-        array $statuses
-    ): void {
-        if ($from) {
-            $select->where('so.created_at >= ?', $from . ' 00:00:00');
-        }
+    private function getRevenueByStatus(
+        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
+        string $ordersTable,
+        string $from,
+        string $to
+    ): array {
+        $select = $connection->select()
+            ->from(
+                ['so' => $ordersTable],
+                [
+                    'status' => 'so.status',
+                    'orders' => new Zend_Db_Expr('COUNT(so.entity_id)'),
+                    'revenue' => new Zend_Db_Expr('COALESCE(SUM(so.base_grand_total), 0)'),
+                ]
+            )
+            ->where('DATE(so.created_at) >= ?', $from)
+            ->where('DATE(so.created_at) <= ?', $to)
+            ->where('so.state NOT IN (?)', ['canceled'])
+            ->group('so.status')
+            ->order('revenue DESC');
 
-        if ($to) {
-            $select->where('so.created_at <= ?', $to . ' 23:59:59');
-        }
+        $rows = $connection->fetchAll($select);
 
-        if (!empty($statuses)) {
-            $select->where('so.status IN (?)', $statuses);
-        } else {
-            $select->where('so.status <> ?', 'canceled');
-        }
+        return array_map(
+            static function (array $row): array {
+                return [
+                    'status' => (string) ($row['status'] ?? 'unknown'),
+                    'orders' => (int) ($row['orders'] ?? 0),
+                    'revenue' => (float) ($row['revenue'] ?? 0),
+                ];
+            },
+            $rows
+        );
     }
 
-    private function normalizeStatuses(?string $statuses): array
-    {
-        if ($statuses === null || trim($statuses) === '') {
-            return [];
-        }
+    private function getTopProducts(
+        \Magento\Framework\DB\Adapter\AdapterInterface $connection,
+        string $ordersTable,
+        string $orderItemsTable,
+        string $from,
+        string $to
+    ): array {
+        $select = $connection->select()
+            ->from(
+                ['soi' => $orderItemsTable],
+                [
+                    'name' => 'soi.name',
+                    'sku' => 'soi.sku',
+                    'qtySold' => new Zend_Db_Expr('COALESCE(SUM(soi.qty_ordered), 0)'),
+                    'orders' => new Zend_Db_Expr('COUNT(DISTINCT soi.order_id)'),
+                    'revenue' => new Zend_Db_Expr('COALESCE(SUM(soi.base_row_total), 0)'),
+                ]
+            )
+            ->joinInner(
+                ['so' => $ordersTable],
+                'so.entity_id = soi.order_id',
+                []
+            )
+            ->where('DATE(so.created_at) >= ?', $from)
+            ->where('DATE(so.created_at) <= ?', $to)
+            ->where('so.state NOT IN (?)', ['canceled'])
+            ->where('soi.parent_item_id IS NULL')
+            ->group(['soi.name', 'soi.sku'])
+            ->order('revenue DESC')
+            ->limit(10);
 
-        $parts = array_map('trim', explode(',', $statuses));
-        $parts = array_filter($parts, static fn(string $value): bool => $value !== '');
+        $rows = $connection->fetchAll($select);
 
-        return array_values(array_unique($parts));
-    }
-
-    private function validateDateRange(?string $from, ?string $to): void
-    {
-        if ($from !== null && !$this->isValidDate($from)) {
-            throw new InputException(__('Invalid "from" date. Expected format: YYYY-MM-DD'));
-        }
-
-        if ($to !== null && !$this->isValidDate($to)) {
-            throw new InputException(__('Invalid "to" date. Expected format: YYYY-MM-DD'));
-        }
-
-        if ($from !== null && $to !== null && $from > $to) {
-            throw new InputException(__('The "from" date cannot be greater than the "to" date.'));
-        }
-    }
-
-    private function isValidDate(string $value): bool
-    {
-        $date = DateTime::createFromFormat('Y-m-d', $value);
-        return $date !== false && $date->format('Y-m-d') === $value;
+        return array_map(
+            static function (array $row): array {
+                return [
+                    'name' => (string) ($row['name'] ?? 'Unnamed product'),
+                    'sku' => (string) ($row['sku'] ?? '—'),
+                    'qtySold' => (float) ($row['qtySold'] ?? 0),
+                    'orders' => (int) ($row['orders'] ?? 0),
+                    'revenue' => (float) ($row['revenue'] ?? 0),
+                ];
+            },
+            $rows
+        );
     }
 }

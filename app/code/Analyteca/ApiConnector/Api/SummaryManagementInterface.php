@@ -4,19 +4,14 @@ declare(strict_types=1);
 
 namespace Analyteca\ApiConnector\Api;
 
-use Analyteca\ApiConnector\Api\Data\SummaryInterface;
-
 interface SummaryManagementInterface
 {
     /**
-     * @param string|null $from
-     * @param string|null $to
-     * @param string|null $statuses
-     * @return \Analyteca\ApiConnector\Api\Data\SummaryInterface
+     * Get analytics summary for a date range.
+     *
+     * @param string $from
+     * @param string $to
+     * @return string
      */
-    public function getSummary(
-        ?string $from = null,
-        ?string $to = null,
-        ?string $statuses = null
-    ): SummaryInterface;
+    public function getSummary(string $from, string $to): string;
 }

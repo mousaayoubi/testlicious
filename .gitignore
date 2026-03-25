@@ -1,2 +1,2 @@
-/var/log/*
-/var/report/*
+var/log/*
+var/report/*

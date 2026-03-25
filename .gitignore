@@ -1,3 +1,5 @@
 var/log/*
 var/report/*
 var/log/exception.log
+
+var/log/

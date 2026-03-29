@@ -20680,6 +20680,8 @@
   'Test18\\Test18\\Model\\ResourceModel\\Note\\Collection\\Interceptor' => false,
   'Test19\\Test19\\Controller\\Index\\Index' => true,
   'Test19\\Test19\\Controller\\Index\\Index\\Interceptor' => false,
+  'Test20\\Test20\\Controller\\Index\\Index' => true,
+  'Test20\\Test20\\Controller\\Index\\Index\\Interceptor' => false,
   'Throwable' => false,
   'Traversable' => false,
   'UnexpectedValueException' => false,

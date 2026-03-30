@@ -4955,6 +4955,14 @@
     'BraintreeLpmAuthorizeRequest' => NULL,
     'BraintreeLpmAuthorizationHandler' => NULL,
     'BraintreeLpmSaleRequest' => NULL,
+    'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
     'Magento\\Framework\\DB\\Adapter\\AdapterInterface' => 
     array (
       'execute_commit_callbacks' => 
@@ -10054,6 +10062,13 @@
       4 => 
       array (
         0 => 'magpay_payments_model_adapter',
+      ),
+    ),
+    'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
       ),
     ),
     'Magento\\Framework\\DB\\Adapter\\AdapterInterface_commit___self' => 

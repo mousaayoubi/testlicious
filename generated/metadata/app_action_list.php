@@ -1325,4 +1325,5 @@
   'test15\\test15\\controller\\index\\index' => 'Test15\\Test15\\Controller\\Index\\Index',
   'test19\\test19\\controller\\index\\index' => 'Test19\\Test19\\Controller\\Index\\Index',
   'test20\\test20\\controller\\index\\index' => 'Test20\\Test20\\Controller\\Index\\Index',
+  'test21\\test21\\controller\\adminhtml\\note\\index' => 'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index',
 );

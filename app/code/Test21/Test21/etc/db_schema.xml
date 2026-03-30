@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<table name="test21_note" resource="default" engine="innodb" comment="Test21 Notes Table">
+	<column xsi:type="int" name="note_id" nullable="false" identity="true" unsigned="true" comment="Note ID" />
+	<column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title" />
+	<column xsi:type="text" name="content" nullable="true" comment="Content" />
+	<column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At" />
+	<constraint xsi:type="primary" referenceId="PRIMARY">
+		<column name="note_id" />
+	</constraint>
+</table>
+</schema>

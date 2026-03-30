@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+	<add id="Test21_Test21::main" title="Test21" module="Test21_Test21" sortOrder="90" resource="Test21_Test21::main" />
+	<add id="Test21_Test21::notes" title="Notes" module="Test21_Test21" sortOrder="10" parent="Test21_Test21::main" action="test21/note/index" resource="Test21_Test21::notes" />
+</menu>
+</config>

@@ -1,0 +1,12 @@
+<div>
+	<h2>Magento Knockout.js<h2>
+			<label for="customer-name">Your Name:</label><br />
+			<input id="cutomer-name" type="text" data-bind="value: name, valueUpdate: 'input'" placeholder="Type your name" />
+			<button type="button" data-bind="click: sayHello">
+				Say Hello
+			</button>
+			<div>
+				<strong>Message:</strong>
+				<span data-bind="text: message"></span>
+			</div>
+</div>

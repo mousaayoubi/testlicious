@@ -20689,6 +20689,8 @@
   'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection' => true,
   'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection\\Interceptor' => false,
   'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection' => true,
+  'Test22\\Test22\\Controller\\Index\\Index' => true,
+  'Test22\\Test22\\Controller\\Index\\Index\\Interceptor' => false,
   'Throwable' => false,
   'Traversable' => false,
   'UnexpectedValueException' => false,

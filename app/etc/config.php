@@ -391,6 +391,7 @@ return [
         'Test18_Test18' => 1,
         'Test19_Test19' => 1,
         'Test20_Test20' => 1,
-        'Test21_Test21' => 1
+        'Test21_Test21' => 1,
+        'Test22_Test22' => 1
     ]
 ];

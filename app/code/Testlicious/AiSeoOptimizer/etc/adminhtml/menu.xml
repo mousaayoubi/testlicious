@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+	<add id="Testlicious_AiSeoOptimizer::main"
+		title="AI SEO Optimizer"
+		module="Testlicious_AiSeoOptimizer"
+		sortOrder="90"
+		parent="Magento_Backend::marketing"
+		resource="Testlicious_AiSeoOptimizer::main" />
+	<add id="Testlicious_AiSeoOptimizer::dashboard"
+		title="Dashboard"
+		module="Testlicious_AiSeoOptimizer"
+		sortOrder="10"
+		parent="Testlicious_AiSeoOptimizer::main"
+		action="aiseo/dashboard/index"
+		resource="Testlicious_AiSeoOptimizer::dashboard" />
+	<add id="Testlicious_AiSeoOptimizer::audits"
+		title="SEO Audits"
+		module="Testlicious_AiSeoOptimizer"
+		sortOrder="20"
+		parent="Testlicious_AiSeoOptimizer::main"
+		action="aiseo/audit/index"
+		resource="Testlicious_AiSeoOptimizer::audits" />
+	<add id="Testlicious_AiSeoOptimizer::suggestions"
+		title="AI Suggestions"
+		module="Testlicious_AiSeoOptimizer"
+		sortOrder="30"
+		parent="Testlicious_AiSeoOptimizer::main"
+		action="aiseo/suggestion/index"
+		resource="Testlicious_AiSeoOptimizer::suggestions" />
+</menu>
+</config>

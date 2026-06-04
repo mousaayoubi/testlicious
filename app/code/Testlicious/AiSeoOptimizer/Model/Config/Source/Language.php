@@ -8,12 +8,11 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Language implements OptionSourceInterface
 {
-	public function toOptionArray(): array
-	{
-	return [
-		['value' => 'en', 'label' => __('English')],
-		['vlaue' => 'ar', 'label' => __('Arabic')],
-		['value' => 'both', 'label' => __('English and Arabic')]
-	];
-	}
+    public function toOptionArray(): array
+    {
+        return [
+            ['value' => 'en', 'label' => __('English')],
+            ['value' => 'ar', 'label' => __('Arabic')],
+        ];
+    }
 }

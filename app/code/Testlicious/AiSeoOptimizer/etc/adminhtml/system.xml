@@ -46,10 +46,32 @@
                     <comment>Example: gpt-5-nano</comment>
                 </field>
 
+                <field id="default_language"
+                       translate="label"
+                       type="select"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Default Language</label>
+                    <source_model>Testlicious\AiSeoOptimizer\Model\Config\Source\Language</source_model>
+                </field>
+
+                <field id="default_tone"
+                       translate="label"
+                       type="select"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Default Tone</label>
+                    <source_model>Testlicious\AiSeoOptimizer\Model\Config\Source\Tone</source_model>
+                </field>
+
                 <field id="max_batch_size"
                        translate="label comment"
                        type="text"
-                       sortOrder="30"
+                       sortOrder="50"
                        showInDefault="1"
                        showInWebsite="1"
                        showInStore="1">
@@ -60,7 +82,7 @@
                 <field id="auto_apply"
                        translate="label comment"
                        type="select"
-                       sortOrder="40"
+                       sortOrder="60"
                        showInDefault="1"
                        showInWebsite="1"
                        showInStore="1">

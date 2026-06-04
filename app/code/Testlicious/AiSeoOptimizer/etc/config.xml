@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
-<default>
-	<aiseo_optimizer>
-		<general>
-			<enabled>1</enabled>
-			<model>gpt-5-nano</model>
-			<default_language>en</default_language>
-			<default_tone>professional</default_tone>
-			<max_batch_size>20</max_batch_size>
-			<auto_apply>0</auto_apply>
-		</general>
-		<openai>
-			<api_key>isk-proj-0Lh7VR1zELEoL8A05e8wM1xOpweuaqusfCbdjMwzR0ph_uNTXUg-6WHaqobXiyjhyoJ3aF9jAHT3BlbkFJ1eF-QY3xmTO-Edt81Pd9E_C0lnu806ry64OZR5ll5eegKhkfblv_fQeGnvvK0eeshQwMT6c2MA</api_key>
-		</openai>
-	</aiseo_optimizer>
-</default>
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <aiseo_optimizer>
+            <general>
+                <enabled>1</enabled>
+                <model>gpt-5-nano</model>
+                <default_language>en</default_language>
+                <default_tone>professional</default_tone>
+                <max_batch_size>20</max_batch_size>
+                <auto_apply>0</auto_apply>
+            </general>
+            <openai>
+                <api_key></api_key>
+            </openai>
+        </aiseo_optimizer>
+    </default>
 </config>

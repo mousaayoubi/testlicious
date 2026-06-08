@@ -266537,6 +266537,69 @@ Line: %line%
     ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Language' => NULL,
     'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Tone' => NULL,
+    'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResult' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Model\\Context',
+      ),
+      'registry' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Registry',
+      ),
+      'resource' => 
+      array (
+        '_vn_' => true,
+      ),
+      'resourceCollection' => 
+      array (
+        '_vn_' => true,
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Model\\ResourceModel\\Db\\Context',
+      ),
+      'connectionName' => 
+      array (
+        '_vn_' => true,
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor' => 
+    array (
+      'entityFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Data\\Collection\\EntityFactory',
+      ),
+      'logger' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Logger\\LoggerProxy',
+      ),
+      'fetchStrategy' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Data\\Collection\\Db\\FetchStrategy\\Query',
+      ),
+      'eventManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Event\\Manager\\Proxy',
+      ),
+      'connection' => 
+      array (
+        '_vn_' => true,
+      ),
+      'resource' => 
+      array (
+        '_vn_' => true,
+      ),
+    ),
     'UpdateResponseResolver' => 
     array (
       'converter' => 
@@ -274324,6 +274387,7 @@ Line: %line%
     'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index' => 'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index\\Interceptor',
     'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection' => 'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection\\Interceptor',
     'Test22\\Test22\\Controller\\Index\\Index' => 'Test22\\Test22\\Controller\\Index\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor',
   ),
   'instanceTypes' => 
   array (

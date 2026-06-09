@@ -1327,4 +1327,6 @@
   'test20\\test20\\controller\\index\\index' => 'Test20\\Test20\\Controller\\Index\\Index',
   'test21\\test21\\controller\\adminhtml\\note\\index' => 'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index',
   'test22\\test22\\controller\\index\\index' => 'Test22\\Test22\\Controller\\Index\\Index',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\product\\index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\product\\scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan',
 );

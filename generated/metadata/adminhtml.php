@@ -269147,6 +269147,28 @@ Line: %line%
         '_i_' => 'Magento\\Framework\\View\\Result\\PageFactory',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'resultPageFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Result\\PageFactory',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'productSeoScanner' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Language' => NULL,
     'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Tone' => NULL,
     'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResult' => 
@@ -277051,6 +277073,8 @@ Line: %line%
     'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index' => 'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index\\Interceptor',
     'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection' => 'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection\\Interceptor',
     'Test22\\Test22\\Controller\\Index\\Index' => 'Test22\\Test22\\Controller\\Index\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor',
   ),
   'instanceTypes' => 

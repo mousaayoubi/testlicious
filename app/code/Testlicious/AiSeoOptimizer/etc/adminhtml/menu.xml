@@ -15,8 +15,8 @@
 		parent="Testlicious_AiSeoOptimizer::main"
 		action="aiseo/dashboard/index"
 		resource="Testlicious_AiSeoOptimizer::dashboard" />
-	<add id="Testlicious_AiSeoOptimizer::audits"
-		title="SEO Audits"
+	<add id="Testlicious_AiSeoOptimizer::audit"
+		title="SEO Audit"
 		module="Testlicious_AiSeoOptimizer"
 		sortOrder="20"
 		parent="Testlicious_AiSeoOptimizer::main"

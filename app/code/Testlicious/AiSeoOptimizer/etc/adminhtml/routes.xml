@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
 <router id="admin">
-	<route id="aiseo" frontName="aiseo">
+	<route id="aiseooptimizer" frontName="aiseooptimizer">
 		<module name="Testlicious_AiSeoOptimizer" />
 	</route>
 </router>

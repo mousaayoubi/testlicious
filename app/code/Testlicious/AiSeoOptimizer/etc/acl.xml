@@ -11,8 +11,8 @@
                     <resource id="Testlicious_AiSeoOptimizer::dashboard"
                               title="Dashboard"
                               sortOrder="10"/>
-                    <resource id="Testlicious_AiSeoOptimizer::audits"
-                              title="SEO Audits"
+                    <resource id="Testlicious_AiSeoOptimizer::audit"
+                              title="SEO Audit"
                               sortOrder="20"/>
                     <resource id="Testlicious_AiSeoOptimizer::suggestions"
                               title="AI Suggestions"

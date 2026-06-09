@@ -266734,6 +266734,36 @@ Line: %line%
         ),
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResultFactory' => 
+    array (
+      'objectManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\ObjectManagerInterface',
+      ),
+      'instanceName' => 
+      array (
+        '_v_' => '\\Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResult',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner' => 
+    array (
+      'productCollectionFactory' => 
+      array (
+        '_i_' => 'Magento\\Catalog\\Model\\ResourceModel\\Product\\CollectionFactory',
+      ),
+      'productSeoResultFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResultFactory',
+      ),
+      'productSeoResultResource' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult',
+      ),
+      'json' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Serialize\\Serializer\\Json',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult' => 
     array (
       'context' => 

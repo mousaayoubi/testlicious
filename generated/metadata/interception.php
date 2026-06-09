@@ -20694,6 +20694,8 @@
   'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Language' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Tone' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResult' => false,
+  'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResultFactory' => false,
+  'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => true,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor' => false,

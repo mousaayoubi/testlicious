@@ -32,9 +32,10 @@ class Scan extends Action
 
             $this->messageManager->addSuccessMessage(
                 __(
-                    'SEO scan completed. Scanned %1 products and saved %2 audit records.',
+                    'SEO scan completed. Scanned %1 products. Created %2 records and updated %3 records.',
                     $result['scanned'],
-                    $result['saved']
+		    $result['created'],
+		    $result['updated']
                 )
             );
         } catch (\Throwable $e) {

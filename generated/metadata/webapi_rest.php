@@ -266805,6 +266805,10 @@ Line: %line%
       array (
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult',
       ),
+      'productSeoResultCollectionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\CollectionFactory',
+      ),
       'json' => 
       array (
         '_i_' => 'Magento\\Framework\\Serialize\\Serializer\\Json',
@@ -266819,6 +266823,17 @@ Line: %line%
       'connectionName' => 
       array (
         '_vn_' => true,
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\CollectionFactory' => 
+    array (
+      'objectManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\ObjectManagerInterface',
+      ),
+      'instanceName' => 
+      array (
+        '_v_' => '\\Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor' => 

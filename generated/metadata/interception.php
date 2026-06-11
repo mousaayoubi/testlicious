@@ -20706,6 +20706,7 @@
   'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => true,
+  'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\CollectionFactory' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection' => true,
   'Throwable' => false,

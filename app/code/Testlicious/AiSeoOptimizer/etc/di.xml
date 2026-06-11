@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="testlicious_aiseo_audit_listing_data_source" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">testlicious_aiseo_audit</argument>
+            <argument name="resourceModel" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult</argument>
+        </arguments>
+    </virtualType>
+
+</config>

@@ -4963,6 +4963,14 @@
         'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
     'Magento\\Framework\\DB\\Adapter\\AdapterInterface' => 
     array (
       'execute_commit_callbacks' => 
@@ -10065,6 +10073,13 @@
       ),
     ),
     'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection_getCurPage___self' => 
     array (
       4 => 
       array (

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">testlicious_aiseo_audit_listing.testlicious_aiseo_audit_listing_data_source</item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>testlicious_aiseo_audit_columns</spinner>
+        <deps>
+            <dep>testlicious_aiseo_audit_listing.testlicious_aiseo_audit_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="run_scan">
+                <url path="aiseo/audit/scan"/>
+                <class>primary</class>
+                <label translate="true">Run SEO Scan</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="testlicious_aiseo_audit_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">audit_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+
+        <aclResource>Testlicious_AiSeoOptimizer::audit</aclResource>
+
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="testlicious_aiseo_audit_listing_data_source">
+            <settings>
+                <requestFieldName>audit_id</requestFieldName>
+                <primaryFieldName>audit_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="testlicious_aiseo_audit_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>audit_id</indexField>
+            </settings>
+        </selectionsColumn>
+
+        <column name="audit_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Audit ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+
+        <column name="entity_type">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Entity Type</label>
+            </settings>
+        </column>
+
+        <column name="entity_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Product ID</label>
+            </settings>
+        </column>
+
+        <column name="store_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Store ID</label>
+            </settings>
+        </column>
+
+        <column name="entity_name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Product Name</label>
+            </settings>
+        </column>
+
+        <column name="current_meta_title">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Current Meta Title</label>
+            </settings>
+        </column>
+
+        <column name="current_meta_description">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Current Meta Description</label>
+            </settings>
+        </column>
+
+        <column name="current_url_key">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Current URL Key</label>
+            </settings>
+        </column>
+
+        <column name="seo_score">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">SEO Score</label>
+            </settings>
+        </column>
+
+        <column name="issues_json">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Issues</label>
+            </settings>
+        </column>
+
+        <column name="status">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

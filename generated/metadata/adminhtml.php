@@ -269338,6 +269338,33 @@ Line: %line%
         '_vn_' => true,
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\Issues' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponent\\Context',
+      ),
+      'uiComponentFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponentFactory',
+      ),
+      'json' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Serialize\\Serializer\\Json',
+      ),
+      'components' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
     'UpdateResponseResolver' => 
     array (
       'converter' => 

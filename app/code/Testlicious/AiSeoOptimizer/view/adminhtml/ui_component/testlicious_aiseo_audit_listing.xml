@@ -122,9 +122,10 @@
             </settings>
         </column>
 
-        <column name="issues_json">
+        <column name="issues_json" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\Issues">
             <settings>
-                <filter>text</filter>
+		    <filter>text</filter>
+		    <bodyTmpl>ui/grid/cells/html</bodyTmpl>
                 <label translate="true">Issues</label>
             </settings>
         </column>

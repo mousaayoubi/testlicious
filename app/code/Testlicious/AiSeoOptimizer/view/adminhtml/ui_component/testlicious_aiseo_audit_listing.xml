@@ -115,7 +115,7 @@
             </settings>
         </column>
 
-        <column name="seo_score">
+        <column name="seo_score" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SeoScore">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">SEO Score</label>

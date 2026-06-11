@@ -20710,6 +20710,7 @@
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection' => true,
   'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\Issues' => false,
+  'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\SeoScore' => false,
   'Throwable' => false,
   'Traversable' => false,
   'UnexpectedValueException' => false,

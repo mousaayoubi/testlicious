@@ -266753,6 +266753,29 @@ Line: %line%
         ),
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\SeoScore' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponent\\Context',
+      ),
+      'uiComponentFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponentFactory',
+      ),
+      'components' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
     'UpdateResponseResolver' => 
     array (
       'converter' => 

@@ -130,7 +130,7 @@
             </settings>
         </column>
 
-        <column name="status">
+        <column name="status" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\Status">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Status</label>

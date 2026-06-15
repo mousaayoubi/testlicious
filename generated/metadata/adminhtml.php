@@ -269193,6 +269193,13 @@ Line: %line%
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Model\\Config' => 
+    array (
+      'scopeConfig' => 
+      array (
+        '_i_' => 'Magento\\Framework\\App\\Config',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Language' => NULL,
     'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Tone' => NULL,
     'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResult' => 
@@ -269336,6 +269343,47 @@ Line: %line%
       'connectionName' => 
       array (
         '_vn_' => true,
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator' => 
+    array (
+      'productRepository' => 
+      array (
+        '_i_' => 'Magento\\Catalog\\Model\\ProductRepository\\Interceptor',
+      ),
+      'promptBuilder' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\SeoPromptBuilder',
+      ),
+      'openAiClient' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\OpenAiClient',
+      ),
+      'json' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Serialize\\Serializer\\Json',
+      ),
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Service\\OpenAiClient' => 
+    array (
+      'curl' => 
+      array (
+        '_i_' => 'Magento\\Framework\\HTTP\\Client\\Curl',
+      ),
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Service\\SeoPromptBuilder' => 
+    array (
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\Issues' => 

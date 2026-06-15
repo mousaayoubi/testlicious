@@ -3,3 +3,5 @@ var/report/*
 var/log/exception.log
 
 var/log/
+
+app/code/Testlicious/AiSeoOptimizer/Service/OpenAiClient.php

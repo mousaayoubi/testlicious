@@ -269356,6 +269356,80 @@ Line: %line%
         '_vn_' => true,
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Model\\ResourceModel\\Db\\Context',
+      ),
+      'connectionName' => 
+      array (
+        '_vn_' => true,
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection\\Interceptor' => 
+    array (
+      'entityFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Data\\Collection\\EntityFactory',
+      ),
+      'logger' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Logger\\LoggerProxy',
+      ),
+      'fetchStrategy' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Data\\Collection\\Db\\FetchStrategy\\Query',
+      ),
+      'eventManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Event\\Manager\\Proxy',
+      ),
+      'connection' => 
+      array (
+        '_vn_' => true,
+      ),
+      'resource' => 
+      array (
+        '_vn_' => true,
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\Suggestion' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Model\\Context',
+      ),
+      'registry' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Registry',
+      ),
+      'resource' => 
+      array (
+        '_vn_' => true,
+      ),
+      'resourceCollection' => 
+      array (
+        '_vn_' => true,
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\SuggestionFactory' => 
+    array (
+      'objectManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\ObjectManagerInterface',
+      ),
+      'instanceName' => 
+      array (
+        '_v_' => '\\Testlicious\\AiSeoOptimizer\\Model\\Suggestion',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator' => 
     array (
       'productRepository' => 
@@ -269377,6 +269451,18 @@ Line: %line%
       'config' => 
       array (
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+      'suggestionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\SuggestionFactory',
+      ),
+      'suggestionResource' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion',
+      ),
+      'resourceConnection' => 
+      array (
+        '_i_' => 'Magento\\Framework\\App\\ResourceConnection\\Interceptor',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Service\\OpenAiClient' => 
@@ -277285,6 +277371,7 @@ Line: %line%
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection\\Interceptor',
   ),
   'instanceTypes' => 
   array (

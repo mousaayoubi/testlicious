@@ -8,6 +8,9 @@ use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\Exception\LocalizedExcpetion;
 use Magento\Framework\Serialize\Serializer\Json;
 use Testlicious\AiSeoOptimizer\Model\Config;
+use Testlicious\AiSeoOptimizer\Model\SuggestionFactory;
+use Testlicious\AiSeoOptimizer\Model\ResourceModel\Suggestion as SuggestionResource;
+use Magento\Framework\App\ResourceConnection;
 
 class AiSuggestionGenerator
 {
@@ -16,7 +19,10 @@ class AiSuggestionGenerator
 		private readonly SeoPromptBuilder $promptBuilder,
 		private readonly OpenAiClient $openAiClient,
 		private readonly Json $json,
-		private readonly Config $config
+		private readonly Config $config,
+		private readonly SuggestionFactory $suggestionFactory,
+		private readonly SuggestionResource $suggestionResource,
+		private readonly ResourceConnection $resourceConnection
 	) {
 	}
 
@@ -33,7 +39,33 @@ class AiSuggestionGenerator
 	$prompt = $this->promptBuilder->build($product, $storeId);
 	$rawResponse = $this->openAiClient->generateText($prompt, $storeId);
 
-	return $this->decodeJsonResponse($rawResponse);
+	$suggestions = $this->decodeJsonResponse($rawResponse);
+
+	$suggestion = $this->suggestionFactory->create();
+
+	$auditId = $this->getLatestAuditId($productId, $storeId ?? 0);
+
+	$suggestion->setData([
+		'audit_id' => $auditId,
+		'entity_type' => 'product',
+		'entity_id' => $productId,
+		'store_id' => $storeId ?? 0,
+		'suggested_meta_title' => $suggestions['suggested_meta_title'],
+		'suggested_meta_description' => $suggestions['suggested_meta_description'],
+		'suggested_short_description' => $suggestions['suggested_short_description'],
+		'suggested_description' => $suggestions['suggested_description'] ?? '',
+		'suggested_keywords_json' => $this->json->serialize($suggestions['focus_keywords']),
+		'suggested_faq_json' => $this->json->serialize([]),
+		'seo_notes' => $suggestions['seo_notes'],
+		'status' => 'pending_review',
+		'model' => $this->config->getModel($storeId),
+	]);
+
+	$this->suggestionResource->save($suggestion);
+
+	$suggestions['suggestions_id'] = (int)$suggestion->getId();
+
+	return $suggestions;
 	}
 
 	/**
@@ -71,5 +103,31 @@ class AiSuggestionGenerator
 		'focus_keywords' => $data['focus_keywords'] ?? [],
 		'seo_notes' => (string)($data['seo_notes'] ?? ''),
 	];
+	}
+
+	/**
+	 * @throws LocalizedException
+	 */
+	private function getLatestAuditId(int $productId, int $storeId): int
+	{
+	$connection = $this->resourceConnection->getConnection();
+	$tableName = $this->resourceConnection->getTableName('testlicious_aiseo_audit');
+
+	$select = $connection->select()
+		      ->from($tableName, ['audit_id'])
+		      ->where('entity_type = ?', 'product')
+		      ->where('entity_id = ?', $productId)
+		      ->where('store_id = ?', $storeId)
+		      ->order('audit_id DESC')
+		      ->limit(1);
+
+	$auditId = (int)$connection->fetchOne($select);
+
+	if ($auditId <= 0) {
+	throw new LocalizedException(
+		__('No SEO audir found for product ID %1. Please scan the product first, then generate AI suggestions.', $productId)
+	);
+	}
+	return $auditId;
 	}
 }

@@ -37,7 +37,8 @@ class Generate extends Action
 
 	$this->messageManager->addSuccessMessage(
 		__(
-			'AI suggestions generated. Title: %1 | Description: %2 | URL Key: %3',
+			'AI suggestions generated and saved. Title: %1 | Description: %2 | URL Key: %3',
+			$suggestions['suggestion_id'] ?? '',
 			$suggestions['suggested_meta_title'] ?? '',
 			$suggestions['suggested_meta_description'] ?? '',
 			$suggestions['suggested_url_key'] ?? ''

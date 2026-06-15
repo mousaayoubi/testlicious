@@ -37,8 +37,11 @@ class Generate extends Action
 
 	$this->messageManager->addSuccessMessage(
 		__(
-			'AI suggestions generated. Meta Title %1',
-			$suggestions['suggested_meta_title'] ?? ''
+			'AI suggestions generated. Title: %1 | Description: %2 | URL Key: %3',
+			$suggestions['suggested_meta_title'] ?? '',
+			$suggestions['suggested_meta_description'] ?? '',
+			$suggestions['suggested_url_key'] ?? ''
+			
 		)
 	);
 	} catch (\Throwable $exception){
@@ -47,6 +50,6 @@ class Generate extends Action
 	);
 	}
 
-	return $resultRedirect->setPath('aiseo_optimizer/product/index');
+	return $resultRedirect->setPath('adminhtml/dashboard/index');
 	}
 }

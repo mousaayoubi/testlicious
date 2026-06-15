@@ -41,7 +41,7 @@ class AiSuggestionGenerator
 	 */
 	private function decodeJsonResponse(string $rawResponse): array
 	{
-	$cleaned = trim($repsonse);
+	$cleaned = trim($rawResponse);
 
 	if (str_starts_with($cleaned, '```json')) {
 	$cleaned = preg_replace('/^```json\s*/', '', $cleaned);

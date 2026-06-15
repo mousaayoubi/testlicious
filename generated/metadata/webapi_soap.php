@@ -266721,6 +266721,17 @@ Line: %line%
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'aiSuggestionGenerator' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config' => 
     array (
       'scopeConfig' => 
@@ -274780,6 +274791,7 @@ Line: %line%
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor',
   ),
   'instanceTypes' => 

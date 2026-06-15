@@ -20699,6 +20699,8 @@
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => true,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor' => false,
+  'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate' => true,
+  'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\Config' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Language' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\Config\\Source\\Tone' => false,

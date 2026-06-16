@@ -11,7 +11,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-	public const ADMIN_RESOURCE = 'Testlicious_AiSeoOptimizer::audit';
+	public const ADMIN_RESOURCE = 'Testlicious_AiSeoOptimizer::audits';
 
 	private PageFactory $resultPageFactory;
 
@@ -26,7 +26,7 @@ class Index extends Action
 	public function execute(): Page
 	{
 	$resultPage = $this->resultPageFactory->create();
-	$resultPage->setActiveMenu('Testlicious_AiSeoOptimizer::audit');
+	$resultPage->setActiveMenu('Testlicious_AiSeoOptimizer::audits');
 	$resultPage->getConfig()->getTitle()->prepend(__('AI SEO Product Audit'));
 
 	return $resultPage;

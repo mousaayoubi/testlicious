@@ -20726,6 +20726,7 @@
   'Testlicious\\AiSeoOptimizer\\Service\\GenerationLogger' => false,
   'Testlicious\\AiSeoOptimizer\\Service\\OpenAiClient' => false,
   'Testlicious\\AiSeoOptimizer\\Service\\SeoPromptBuilder' => false,
+  'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\AuditActions' => false,
   'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\Issues' => false,
   'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\SeoScore' => false,
   'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\Status' => false,

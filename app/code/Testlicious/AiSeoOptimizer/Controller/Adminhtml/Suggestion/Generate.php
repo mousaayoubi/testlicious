@@ -33,7 +33,7 @@ class Generate extends Action
 
 	if ($productId <= 0) {
 	$this->messageManager->addErrorMessage(__('Missing product ID.'));
-	return $resultRedirect->setPath('adminhtml/dashboard/index');
+	return $resultRedirect->setPath('aiseo/product/index');
 	}
 
 	$model = $this->config->getModel($storeId);
@@ -85,6 +85,6 @@ class Generate extends Action
 	);
 	}
 
-	return $resultRedirect->setPath('adminhtml/dashboard/index');
+	return $resultRedirect->setPath('aiseo/product/index');
 	}
 }

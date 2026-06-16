@@ -63,7 +63,7 @@ class AiSuggestionGenerator
 
 	$this->suggestionResource->save($suggestion);
 
-	$suggestions['suggestions_id'] = (int)$suggestion->getId();
+	$suggestions['suggestion_id'] = (int)$suggestion->getId();
 
 	return $suggestions;
 	}

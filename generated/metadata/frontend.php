@@ -268237,6 +268237,33 @@ Line: %line%
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\AuditActions' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponent\\Context',
+      ),
+      'uiComponentFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponentFactory',
+      ),
+      'urlBuilder' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Url',
+      ),
+      'components' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\Issues' => 
     array (
       'context' => 

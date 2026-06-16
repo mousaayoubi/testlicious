@@ -144,5 +144,11 @@
                 <label translate="true">Created At</label>
             </settings>
         </column>
-    </columns>
+<actionsColumn name="actions" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\AuditActions" sortOrder="999">
+	<settings>
+		<indexField>audit_id</indexField>
+		<label translate="true">Actions</label>
+	</settings>
+</actionsColumn>
+</columns>
 </listing>

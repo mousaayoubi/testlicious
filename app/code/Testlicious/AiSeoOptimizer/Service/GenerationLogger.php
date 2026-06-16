@@ -18,7 +18,7 @@ public function __construct(
 /**
  * @throws AlreadyExsistsException
  */
-public function logSucess(
+public function logSuccess(
 	string $entityType,
 	int $entityId,
 	int $storeId,

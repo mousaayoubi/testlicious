@@ -267864,6 +267864,14 @@ Line: %line%
       array (
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator',
       ),
+      'generationLogger' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\GenerationLogger',
+      ),
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
     ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config' => 
     array (

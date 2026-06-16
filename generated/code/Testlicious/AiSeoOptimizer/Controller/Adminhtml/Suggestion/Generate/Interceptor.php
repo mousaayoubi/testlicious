@@ -8,10 +8,10 @@ class Interceptor extends \Testlicious\AiSeoOptimizer\Controller\Adminhtml\Sugge
 {
     use \Magento\Framework\Interception\Interceptor;
 
-    public function __construct(\Magento\Backend\App\Action\Context $context, \Testlicious\AiSeoOptimizer\Service\AiSuggestionGenerator $aiSuggestionGenerator)
+    public function __construct(\Magento\Backend\App\Action\Context $context, \Testlicious\AiSeoOptimizer\Service\AiSuggestionGenerator $aiSuggestionGenerator, \Testlicious\AiSeoOptimizer\Service\GenerationLogger $generationLogger, \Testlicious\AiSeoOptimizer\Model\Config $config)
     {
         $this->___init();
-        parent::__construct($context, $aiSuggestionGenerator);
+        parent::__construct($context, $aiSuggestionGenerator, $generationLogger, $config);
     }
 
     /**

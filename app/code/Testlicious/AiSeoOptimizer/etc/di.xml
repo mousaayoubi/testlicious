@@ -5,7 +5,8 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="testlicious_aiseo_audit_listing_data_source" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult\Grid\Collection</item>
+		    <item name="testlicious_aiseo_audit_listing_data_source" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult\Grid\Collection</item>
+		    <item name="testlicious_aiseo_suggestion_listing_data_source" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\Suggestion\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -17,5 +18,10 @@
             <argument name="resourceModel" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult</argument>
         </arguments>
     </virtualType>
-
+<virtualType name="Testlicious\AiSeoOptimizer\Model\ResourceModel\Suggestion\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+	<arguments>
+		<argument name="mainTable" xsi:type="string">testlicious_aiseo_suggestion</argument>
+		<argument name="resourceModel" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\Suggestion</argument>
+	</arguments>
+</virtualType>
 </config>

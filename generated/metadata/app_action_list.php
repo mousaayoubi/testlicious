@@ -1331,5 +1331,8 @@
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\audit\\scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan',
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\product\\index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index',
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\product\\scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\apply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply',
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\reject' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject',
 );

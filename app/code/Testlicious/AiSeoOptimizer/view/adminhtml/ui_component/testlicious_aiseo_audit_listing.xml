@@ -150,5 +150,13 @@
 		<label translate="true">Actions</label>
 	</settings>
 </actionsColumn>
+<actionsColumn name="actions" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionActions">
+	<settings>
+		<indexField>suggestion_id</indexField>
+		<label translate="true">Actions</label>
+		<resizeEnabled>False</resizeEnabled>
+		<resizeDefaultWidth>120</resizeDefaultWidth>
+	</settings>
+</actionsColumn>
 </columns>
 </listing>

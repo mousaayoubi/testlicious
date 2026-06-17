@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<argument name="data" xsi:type="array">
+	<item name="js_config" xsi:type="array">
+		<item name="provider" xsi:type="string">testlicious_aiseo_suggestion_listing.testlicious_aiseo_suggestion_listing_data_source</item>
+	</item>
+</argument>
+<settings>
+	<spinner>testlicious_aiseo_suggestion_columns</spinner>
+	<deps>
+		<dep>testlicious_aiseo_suggestion_listing.testlicious_aiseo_suggestion_listing_data_source</dep>
+	</deps>
+</settings>
+<dataSource name="testlicious_aiseo_suggestion_listing_data_source" component="Magento_Ui/js/grid/provider">
+	<settings>
+		<storageConfig>
+			<param name="indexField" xsi:type="string">suggestion_id</param>
+		</storageConfig>
+		<updateUrl path="mui/index/render" />
+	</settings>
+	<aclResource>Testlicious_AiSeoOptimizer::suggestions</aclResource>
+	<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="testlicious_aiseo_suggestion_listing_data_source">
+		<settings>
+			<requestFieldName>suggestion_id</requestFieldName>
+			<primaryFieldName>suggestion_id</primaryFieldName>
+		</settings>
+	</dataProvider>
+</dataSource>
+<listingToolbar name="listing_top">
+	<settings>
+		<sticky>true</sticky>
+	</settings>
+	<bookmark name="bookmarks" />
+	<columnsControls name="columns_controls" />
+	<filters name="listing_filters" />
+	<paging name="listing_paging" />
+</listingToolbar>
+<columns name="testlicious_aiseo_suggestion_columns">
+	<selectionsColumn name="ids">
+		<settings>
+			<indexField>suggestion_id</indexField>
+		</settings>
+	</selectionsColumn>
+	<column name="suggestion_id">
+		<settings>
+			<filter>textRange</filter>
+			<sorting>desc</sorting>
+			<label translate="true">ID</label>
+		</settings>
+	</column>
+	<column name="audit_id">
+		<settings>
+			<filter>textRange</filter>
+			<label translate="true">Audit ID</label>
+		</settings>
+	</column>
+	<column name="entity_type">
+		<settings>
+			<filter>text</filter>
+			<label translate="true">Entity Type</label>
+		</settings>
+	</column>
+	<column name="entity_id">
+		<settings>
+			<filter>textRange</filter>
+			<label translate="true">Entity ID</label>
+		</settings>
+	</column>
+	<column name="store_id">
+		<settings>
+			<filter>textRange</filter>
+			<label translate="true">Store ID</label>
+		</settings>
+	</column>
+	<column name="suggested_meta_title">
+		<settings>
+			<filter>text</filter>
+			<label translate="true">Suggested Meta Title</label>
+		</settings>
+	</column>
+	<column name="suggested_meta_description">
+		<settings>
+			<filter>text</filter>
+			<label translate="true">Suggested Meta Description</label>
+		</settings>
+	</column>
+	<column name="suggested_meta_keywords">
+		<settings>
+			<filter>text</filter>
+			<label translate="true">Suggested Meta Keywords</label>
+		</settings>
+	</column>
+	<column name="status">
+		<settings>
+			<filter>select</filter>
+			<dataType>select</dataType>
+			<label translate="true">Status</label>
+			<option class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionStatusOptions" />
+		</settings>
+	</column>
+	<column name="model">
+		<settings>
+			<filter>text</filter>
+			<label translate="true">Model</label>
+		</settings>
+	</column>
+	<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+		<settings>
+			<filter>dateRange</filter>
+			<dataType>date</dataType>
+			<label translate="true">Created At</label>
+		</settings>
+	</column>
+	<actionsColumn name="actions" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionActions">
+		<settings>
+			<indexField>suggestion_id</indexField>
+			<label translate="true">Actions</label>
+			<resizeEnabled>false</resizeEnabled>
+			<resizeDefaultWidth>120</resizeDefaultWidth>
+		</settings>
+	</actionsColumn>
+</columns>
+</listing>

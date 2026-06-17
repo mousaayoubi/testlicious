@@ -3410,6 +3410,7 @@
           'retriable_operation_modal_listing_data_source' => 'Magento\\AsynchronousOperations\\Ui\\Component\\DataProvider\\Operation\\Retriable\\SearchResult',
           'test21_note_listing_data_source' => 'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection',
           'testlicious_aiseo_audit_listing_data_source' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection',
+          'testlicious_aiseo_suggestion_listing_data_source' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Grid\\Collection',
           'braintree_report_data_source' => 'PayPal\\Braintree\\Model\\Report\\TransactionsCollection',
         ),
       ),
@@ -126495,6 +126496,7 @@ Line: %line%
           'retriable_operation_modal_listing_data_source' => 'Magento\\AsynchronousOperations\\Ui\\Component\\DataProvider\\Operation\\Retriable\\SearchResult',
           'test21_note_listing_data_source' => 'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection',
           'testlicious_aiseo_audit_listing_data_source' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection',
+          'testlicious_aiseo_suggestion_listing_data_source' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Grid\\Collection',
         ),
       ),
     ),
@@ -266721,6 +266723,25 @@ Line: %line%
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'suggestionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\SuggestionFactory',
+      ),
+      'suggestionResource' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion',
+      ),
+      'suggestionApplier' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\SuggestionApplier',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor' => 
     array (
       'context' => 
@@ -266738,6 +266759,36 @@ Line: %line%
       'config' => 
       array (
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'resultPageFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Result\\PageFactory',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'suggestionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\SuggestionFactory',
+      ),
+      'suggestionResource' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion',
+      ),
+      'suggestionApplier' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\SuggestionApplier',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config' => 
@@ -267004,6 +267055,41 @@ Line: %line%
         '_vn_' => true,
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Grid\\Collection' => 
+    array (
+      'entityFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Data\\Collection\\EntityFactory',
+      ),
+      'logger' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Logger\\LoggerProxy',
+      ),
+      'fetchStrategy' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Data\\Collection\\Db\\FetchStrategy\\Query',
+      ),
+      'eventManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Event\\Manager\\Proxy',
+      ),
+      'mainTable' => 
+      array (
+        '_v_' => 'testlicious_aiseo_suggestion',
+      ),
+      'resourceModel' => 
+      array (
+        '_v_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion',
+      ),
+      'identifierName' => 
+      array (
+        '_vn_' => true,
+      ),
+      'connectionName' => 
+      array (
+        '_vn_' => true,
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Model\\Suggestion' => 
     array (
       'context' => 
@@ -267102,6 +267188,17 @@ Line: %line%
       'config' => 
       array (
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Service\\SuggestionApplier' => 
+    array (
+      'productRepository' => 
+      array (
+        '_i_' => 'Magento\\Catalog\\Model\\ProductRepository\\Interceptor',
+      ),
+      'suggestionResource' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\AuditActions' => 
@@ -267204,6 +267301,34 @@ Line: %line%
         ),
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\SuggestionActions' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponent\\Context',
+      ),
+      'uiComponentFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponentFactory',
+      ),
+      'urlBuilder' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Url',
+      ),
+      'components' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\SuggestionStatusOptions' => NULL,
     'UpdateResponseResolver' => 
     array (
       'converter' => 
@@ -274997,7 +275122,10 @@ Line: %line%
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\GenerationLog\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\GenerationLog\\Collection\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection\\Interceptor',
@@ -275638,6 +275766,7 @@ Line: %line%
     'SignUpResponseResolver' => 'Magento\\Analytics\\Model\\Connector\\Http\\ResponseResolver',
     'Test21\\Test21\\Model\\ResourceModel\\Note\\Grid\\Collection' => 'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Grid\\Collection' => 'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Grid\\Collection' => 'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult\\Interceptor',
     'UpdateResponseResolver' => 'Magento\\Analytics\\Model\\Connector\\Http\\ResponseResolver',
     'VaultPaymentDefaultValueHandler' => 'Magento\\Payment\\Gateway\\Config\\ConfigValueHandler',
     'VaultPaymentValueHandlerPool' => 'Magento\\Payment\\Gateway\\Config\\ValueHandlerPool',

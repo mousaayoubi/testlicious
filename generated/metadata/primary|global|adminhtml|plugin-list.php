@@ -4213,6 +4213,57 @@
     'Magento\\Payment\\Gateway\\Request\\BuilderComposite' => NULL,
     'BraintreeAuthorizeRequest' => NULL,
     'BraintreeVaultAuthorizeRequest' => NULL,
+    'IteratorAggregate' => NULL,
+    'Countable' => NULL,
+    'Magento\\Framework\\Option\\ArrayInterface' => NULL,
+    'Magento\\Framework\\Data\\CollectionDataSourceInterface' => NULL,
+    'Magento\\Framework\\ObjectManager\\ResetAfterRequestInterface' => NULL,
+    'Traversable' => NULL,
+    'Magento\\Framework\\Data\\OptionSourceInterface' => NULL,
+    'Magento\\Framework\\View\\Element\\Block\\ArgumentInterface' => NULL,
+    'Magento\\Framework\\Data\\Collection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
+    'Magento\\Framework\\Data\\Collection\\AbstractDb' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
+    'Magento\\Framework\\App\\ResourceConnection\\SourceProviderInterface' => NULL,
+    'Magento\\Framework\\Model\\ResourceModel\\Db\\Collection\\AbstractCollection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
+    'Magento\\Framework\\Api\\Search\\SearchResultInterface' => NULL,
+    'Magento\\Framework\\Api\\SearchResultsInterface' => NULL,
+    'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Grid\\Collection' => 
+    array (
+      'currentPageDetection' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
+      ),
+    ),
     'Magento\\Framework\\DB\\Adapter\\AdapterInterface' => 
     array (
       'execute_commit_callbacks' => 
@@ -4267,7 +4318,6 @@
     'Laminas\\Http\\Response' => NULL,
     'Laminas\\Http\\PhpEnvironment\\Response' => NULL,
     'Magento\\Framework\\App\\Response\\HttpInterface' => NULL,
-    'Magento\\Framework\\ObjectManager\\ResetAfterRequestInterface' => NULL,
     'Magento\\Framework\\App\\ResponseInterface' => NULL,
     'Magento\\Framework\\HTTP\\PhpEnvironment\\Response' => NULL,
     'Magento\\Framework\\App\\Response\\Http' => 
@@ -4462,21 +4512,6 @@
       array (
         'sortOrder' => 50,
         'instance' => 'Magento\\Theme\\Model\\Design\\Config\\Plugin\\Dump',
-      ),
-    ),
-    'IteratorAggregate' => NULL,
-    'Countable' => NULL,
-    'Magento\\Framework\\Option\\ArrayInterface' => NULL,
-    'Magento\\Framework\\Data\\CollectionDataSourceInterface' => NULL,
-    'Traversable' => NULL,
-    'Magento\\Framework\\Data\\OptionSourceInterface' => NULL,
-    'Magento\\Framework\\View\\Element\\Block\\ArgumentInterface' => NULL,
-    'Magento\\Framework\\Data\\Collection' => 
-    array (
-      'currentPageDetection' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
       ),
     ),
     'Magento\\Config\\Console\\Command\\LocaleEmulatorInterface' => NULL,
@@ -5182,15 +5217,6 @@
         'instance' => 'Magento\\Catalog\\Model\\Indexer\\Category\\Product\\Plugin\\MviewState',
       ),
     ),
-    'Magento\\Framework\\Data\\Collection\\AbstractDb' => 
-    array (
-      'currentPageDetection' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
-      ),
-    ),
-    'Magento\\Framework\\App\\ResourceConnection\\SourceProviderInterface' => NULL,
     'Magento\\Eav\\Model\\Entity\\Collection\\AbstractCollection' => 
     array (
       'currentPageDetection' => 
@@ -7728,14 +7754,6 @@
         'instance' => 'Magento\\InventoryImportExport\\Plugin\\Import\\SourceItemImporter',
       ),
     ),
-    'Magento\\Framework\\Model\\ResourceModel\\Db\\Collection\\AbstractCollection' => 
-    array (
-      'currentPageDetection' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
-      ),
-    ),
     'Magento\\Framework\\Model\\ResourceModel\\Db\\VersionControl\\Collection' => 
     array (
       'currentPageDetection' => 
@@ -9190,16 +9208,6 @@
         'instance' => 'Magento\\InventoryBundleProductAdminUi\\Plugin\\Bundle\\Ui\\DataProvider\\Product\\Form\\AddColumnQuantityPerSource',
       ),
     ),
-    'Magento\\Framework\\Api\\Search\\SearchResultInterface' => NULL,
-    'Magento\\Framework\\Api\\SearchResultsInterface' => NULL,
-    'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult' => 
-    array (
-      'currentPageDetection' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\Data\\Collection',
-      ),
-    ),
     'Magento\\Sales\\Model\\ResourceModel\\Order\\Grid\\Collection' => 
     array (
       'currentPageDetection' => 
@@ -10009,6 +10017,41 @@
   ),
   2 => 
   array (
+    'Magento\\Framework\\Data\\Collection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Magento\\Framework\\Data\\Collection\\AbstractDb_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Magento\\Framework\\Model\\ResourceModel\\Db\\Collection\\AbstractCollection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Grid\\Collection_getCurPage___self' => 
+    array (
+      4 => 
+      array (
+        0 => 'currentPageDetection',
+      ),
+    ),
     'Magento\\Framework\\DB\\Adapter\\AdapterInterface_commit___self' => 
     array (
       4 => 
@@ -10221,13 +10264,6 @@
       4 => 
       array (
         0 => 'designConfigTheme',
-      ),
-    ),
-    'Magento\\Framework\\Data\\Collection_getCurPage___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'currentPageDetection',
       ),
     ),
     'Magento\\Config\\Console\\Command\\LocaleEmulator_emulate___self' => 
@@ -10811,13 +10847,6 @@
       4 => 
       array (
         0 => 'setStatusForMview',
-      ),
-    ),
-    'Magento\\Framework\\Data\\Collection\\AbstractDb_getCurPage___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'currentPageDetection',
       ),
     ),
     'Magento\\Eav\\Model\\Entity\\Collection\\AbstractCollection_getCurPage___self' => 
@@ -12824,13 +12853,6 @@
         0 => 'importStockItemDataForSourceItem',
       ),
     ),
-    'Magento\\Framework\\Model\\ResourceModel\\Db\\Collection\\AbstractCollection_getCurPage___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'currentPageDetection',
-      ),
-    ),
     'Magento\\Framework\\Model\\ResourceModel\\Db\\VersionControl\\Collection_getCurPage___self' => 
     array (
       4 => 
@@ -14112,13 +14134,6 @@
       4 => 
       array (
         0 => 'append_column_quantity_per_source',
-      ),
-    ),
-    'Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\SearchResult_getCurPage___self' => 
-    array (
-      4 => 
-      array (
-        0 => 'currentPageDetection',
       ),
     ),
     'Magento\\Sales\\Model\\ResourceModel\\Order\\Grid\\Collection_getCurPage___self' => 

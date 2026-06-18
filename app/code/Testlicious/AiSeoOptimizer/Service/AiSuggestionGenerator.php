@@ -11,6 +11,8 @@ use Testlicious\AiSeoOptimizer\Model\Config;
 use Testlicious\AiSeoOptimizer\Model\SuggestionFactory;
 use Testlicious\AiSeoOptimizer\Model\ResourceModel\Suggestion as SuggestionResource;
 use Magento\Framework\App\ResourceConnection;
+use Testlicious\AiSeoOptimizer\Model\ProductSeoResultFactory;
+use Testlicious\AiSeoOptimizer\Model\ResourceModel\ProductSeoResult as ProductSeoResultResource;
 
 class AiSuggestionGenerator
 {
@@ -22,7 +24,9 @@ class AiSuggestionGenerator
 		private readonly Config $config,
 		private readonly SuggestionFactory $suggestionFactory,
 		private readonly SuggestionResource $suggestionResource,
-		private readonly ResourceConnection $resourceConnection
+		private readonly ResourceConnection $resourceConnection,
+		private readonly ProductSeoResultFactory $auditResultFactory,
+		private readonly ProductSeoResultResource $auditResultResource
 	) {
 	}
 
@@ -129,5 +133,21 @@ class AiSuggestionGenerator
 	);
 	}
 	return $auditId;
+	}
+
+	public function generateForAudit(int $auditId): void
+	{
+	$audit = $this->auditResultFactory->create();
+	$this->auditResultResource->load($audit, $auditId);
+
+	if (!$audit->getId()) {
+	throw new \RuntimeException(__('Audit result not found.'));
+	}
+
+	$this->generateByProductId(
+		(int)$audit->getEntityId(),
+		(int)$audit->getStoreId(),
+		(int)$audit->getId()
+	);
 	}
 }

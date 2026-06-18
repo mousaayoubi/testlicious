@@ -20698,6 +20698,8 @@
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index' => true,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor' => false,
+  'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\MassGenerate' => true,
+  'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\MassGenerate\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => true,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor' => false,
   'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply' => true,

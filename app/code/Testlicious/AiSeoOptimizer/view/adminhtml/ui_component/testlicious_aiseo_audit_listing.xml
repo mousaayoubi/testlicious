@@ -48,9 +48,21 @@
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
         <filters name="listing_filters"/>
-        <paging name="listing_paging"/>
+	<paging name="listing_paging"/>
+	<massaction name="listing_massaction">
+		<action name="generate_ai_suggestions">
+			<settings>
+				<confirm>
+					<message translate="true">Generate AI suggestions for selected audit results?</message>
+					<title translate="true">Generate AI Suggestions</title>
+				</confirm>
+				<url path="aiseo/product/massGenerate" />
+				<type>generate_ai_suggestions</type>
+				<label translate="true">Generate AI Suggestions</label>
+			</settings>
+		</action>
+	</massaction>
     </listingToolbar>
-
     <columns name="testlicious_aiseo_audit_columns">
         <selectionsColumn name="ids">
             <settings>
@@ -148,13 +160,7 @@
 	<settings>
 		<indexField>audit_id</indexField>
 		<label translate="true">Actions</label>
-	</settings>
-</actionsColumn>
-<actionsColumn name="actions" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionActions">
-	<settings>
-		<indexField>suggestion_id</indexField>
-		<label translate="true">Actions</label>
-		<resizeEnabled>False</resizeEnabled>
+		<resizeEnabled>false</resizeEnabled>
 		<resizeDefaultWidth>120</resizeDefaultWidth>
 	</settings>
 </actionsColumn>

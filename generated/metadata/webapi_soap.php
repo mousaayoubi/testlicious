@@ -266712,6 +266712,29 @@ Line: %line%
         '_i_' => 'Magento\\Framework\\View\\Result\\PageFactory',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\MassGenerate\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'filter' => 
+      array (
+        '_i_' => 'Magento\\Ui\\Component\\MassAction\\Filter',
+      ),
+      'collectionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\CollectionFactory',
+      ),
+      'aiSuggestionGenerator' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator',
+      ),
+      'generationLogger' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\GenerationLogger',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor' => 
     array (
       'context' => 
@@ -267159,6 +267182,14 @@ Line: %line%
       'resourceConnection' => 
       array (
         '_i_' => 'Magento\\Framework\\App\\ResourceConnection\\Interceptor',
+      ),
+      'auditResultFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoResultFactory',
+      ),
+      'auditResultResource' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Service\\GenerationLogger' => 
@@ -275121,6 +275152,7 @@ Line: %line%
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Index\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\MassGenerate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\MassGenerate\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor',

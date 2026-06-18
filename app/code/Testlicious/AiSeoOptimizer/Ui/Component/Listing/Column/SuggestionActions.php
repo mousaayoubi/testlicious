@@ -40,7 +40,9 @@ class SuggestionActions extends Column
 
 	$item[$this->getData('name')] = [];
 
-	if ($status !== 'applied') {
+	if ($status !== 'pending_review') {
+		continue;
+	}
 	$item[$this->getData('name')]['apply'] = [
 		'href' => $this->urlBuilder->getUrl(
 			self::URL_PATH_APPLY,
@@ -52,9 +54,7 @@ class SuggestionActions extends Column
 			'message' => __('Are you sure you want to apply this suggesion to the product?')
 		]
 	];
-	}
 
-	if ($status !== 'applied' && $status !== 'rejected') {
 	$item[$this->getData('name')]['reject'] = [
 		'href' => $this->urlBuilder->getUrl(
 			self::URL_PATH_REJECT,
@@ -66,7 +66,6 @@ class SuggestionActions extends Column
 			'message' => __('Are you sure you want to reject this suggestion?')
 		]
 	];
-	}
 	}
 
 	return $dataSource;

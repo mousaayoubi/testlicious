@@ -115,12 +115,12 @@
 			<label translate="true">Suggested Meta Keywords</label>
 		</settings>
 	</column>
-	<column name="status">
+	<column name="status" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionStatus">
 		<settings>
-			<filter>select</filter>
-			<dataType>select</dataType>
+			<filter>text</filter>
+			<dataType>text</dataType>
+			<bodyTmpl>ui/grid/cells/html</bodyTmpl>
 			<label translate="true">Status</label>
-			<option class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionStatusOptions" />
 		</settings>
 	</column>
 	<column name="model">

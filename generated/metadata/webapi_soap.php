@@ -267162,6 +267162,7 @@ Line: %line%
         '_vn_' => true,
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Model\\Source\\SuggestionStatus' => NULL,
     'Testlicious\\AiSeoOptimizer\\Model\\Suggestion' => 
     array (
       'context' => 
@@ -267394,6 +267395,29 @@ Line: %line%
       'urlBuilder' => 
       array (
         '_i_' => 'Magento\\Framework\\Url',
+      ),
+      'components' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+      'data' => 
+      array (
+        '_v_' => 
+        array (
+        ),
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Ui\\Component\\Listing\\Column\\SuggestionStatus' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponent\\Context',
+      ),
+      'uiComponentFactory' => 
+      array (
+        '_i_' => 'Magento\\Framework\\View\\Element\\UiComponentFactory',
       ),
       'components' => 
       array (

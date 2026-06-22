@@ -38,11 +38,11 @@ class SuggestionActions extends Column
 	$suggestionId = (int)$item['suggestion_id'];
 	$status = (string)($item['status'] ?? '');
 
-	$item[$this->getData('name')] = [];
-
 	if ($status !== 'pending_review') {
+		$item[$this->getData('name')]= [];
 		continue;
 	}
+
 	$item[$this->getData('name')]['apply'] = [
 		'href' => $this->urlBuilder->getUrl(
 			self::URL_PATH_APPLY,

@@ -1335,5 +1335,7 @@
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\apply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply',
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate',
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\massapply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassApply',
+  'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\massreject' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassReject',
   'testlicious\\aiseooptimizer\\controller\\adminhtml\\suggestion\\reject' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject',
 );

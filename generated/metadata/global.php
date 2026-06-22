@@ -266655,6 +266655,44 @@ Line: %line%
         '_i_' => 'Magento\\Framework\\View\\Result\\PageFactory',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassApply\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'filter' => 
+      array (
+        '_i_' => 'Magento\\Ui\\Component\\MassAction\\Filter',
+      ),
+      'collectionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\CollectionFactory',
+      ),
+      'suggestionApplier' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\SuggestionApplier',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassReject\\Interceptor' => 
+    array (
+      'context' => 
+      array (
+        '_i_' => 'Magento\\Backend\\App\\Action\\Context',
+      ),
+      'filter' => 
+      array (
+        '_i_' => 'Magento\\Ui\\Component\\MassAction\\Filter',
+      ),
+      'collectionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\CollectionFactory',
+      ),
+      'suggestionApplier' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\SuggestionApplier',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject\\Interceptor' => 
     array (
       'context' => 
@@ -266909,6 +266947,17 @@ Line: %line%
       'connectionName' => 
       array (
         '_vn_' => true,
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\CollectionFactory' => 
+    array (
+      'objectManager' => 
+      array (
+        '_i_' => 'Magento\\Framework\\ObjectManagerInterface',
+      ),
+      'instanceName' => 
+      array (
+        '_v_' => '\\Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\Collection\\Interceptor' => 
@@ -275015,6 +275064,8 @@ Line: %line%
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Apply\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Generate\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassApply' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassApply\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassReject' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\MassReject\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Suggestion\\Reject\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\GenerationLog\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\GenerationLog\\Collection\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\Collection\\Interceptor',

@@ -28,6 +28,30 @@
 	</dataProvider>
 </dataSource>
 <listingToolbar name="listing_top">
+	<massaction name="listing_massaction">
+		<action name="apply_suggestions">
+			<settings>
+				<confirm>
+					<message translate="true">Apply selected AI suggestions to products?</message>
+					<title translate="true">Apply AI Suggestions</title>
+				</confirm>
+				<url path="aiseo/suggestion/massApply" />
+				<type>apply_suggestions</type>
+				<label translate="true">Apply AI Suggestions</label>
+			</settings>
+		</action>
+		<action name="reject_suggestions">
+			<settings>
+				<confirm>
+					<message translate="true">Reject selected AI suggestions?</message>
+					<title translate="true">Reject AI Suggestions</title>
+				</confirm>
+				<url path="aiseo/suggestion/massReject" />
+				<type>reject_suggestions</type>
+				<label translate="true">Reject AI Suggestions</label>
+			</settings>
+		</action>
+	</massaction>
 	<settings>
 		<sticky>true</sticky>
 	</settings>
@@ -112,7 +136,7 @@
 			<label translate="true">Created At</label>
 		</settings>
 	</column>
-	<actionsColumn name="actions" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionActions">
+	<actionsColumn name="actions" class="Testlicious\AiSeoOptimizer\Ui\Component\Listing\Column\SuggestionActions" sortOrder="999">
 		<settings>
 			<indexField>suggestion_id</indexField>
 			<label translate="true">Actions</label>

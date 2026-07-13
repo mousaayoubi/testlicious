@@ -15,6 +15,8 @@ class Config
 	private const XML_PATH_OPENAI_API_KEY = 'aiseo_optimizer/openai/api_key';
 	private const XML_PATH_OPENAI_MODEL = 'aiseo_optimizer/openai/model';
 
+	private const XML_PATH_MAX_BATCH_SIZE = 'aiseo_optimizer/general/max_batch_size';
+
 	public function __construct(
 		private readonly ScopeConfigInterface $scopeConfig
 	) {
@@ -69,5 +71,17 @@ class Config
 	));
 
 	return $tone !== '' ? $tone : 'Professional';
+	}
+
+	public function getMaxBatchSize(?int $storeId = null): int
+	{
+	return max(
+		1,
+		(int) $this->scopeConfig->getValue(
+			self::XML_PATH_MAX_BATCH_SIZE,
+			ScopeInterface::SCOPE_STORE,
+			$storeId
+		)
+	);
 	}
 }

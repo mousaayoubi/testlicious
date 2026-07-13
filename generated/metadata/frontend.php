@@ -106838,6 +106838,10 @@ Line: %line%
           array (
             '_i_' => 'Magento\\Translation\\Console\\Command\\UninstallLanguageCommand\\Interceptor',
           ),
+          'trstlicious_aiseo_scan_products' => 
+          array (
+            '_i_' => 'Testlicious\\AiSeoOptimizer\\Console\\Command\\ScanProductsCommand\\Interceptor',
+          ),
           'encryption_update_key_command' => 
           array (
             '_i_' => 'Magento\\EncryptionKey\\Console\\Command\\UpdateEncryptionKeyCommand\\Interceptor',
@@ -267812,6 +267816,25 @@ Line: %line%
         '_i_' => 'Magento\\Framework\\View\\Result\\PageFactory',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Console\\Command\\ScanProductsCommand\\Interceptor' => 
+    array (
+      'productSeoScanner' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner',
+      ),
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+      'appState' => 
+      array (
+        '_i_' => 'Magento\\Framework\\App\\State\\Interceptor',
+      ),
+      'name' => 
+      array (
+        '_vn_' => true,
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Index\\Interceptor' => 
     array (
       'context' => 
@@ -267983,6 +268006,21 @@ Line: %line%
       'suggestionApplier' => 
       array (
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\SuggestionApplier',
+      ),
+    ),
+    'Testlicious\\AiSeoOptimizer\\Cron\\ScanProducts' => 
+    array (
+      'productSeoScanner' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ProductSeoScanner',
+      ),
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+      'logger' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Logger\\LoggerProxy',
       ),
     ),
     'Testlicious\\AiSeoOptimizer\\Model\\Config' => 
@@ -276373,6 +276411,7 @@ Line: %line%
     'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index' => 'Test21\\Test21\\Controller\\Adminhtml\\Note\\Index\\Interceptor',
     'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection' => 'Test21\\Test21\\Model\\ResourceModel\\Note\\Collection\\Interceptor',
     'Test22\\Test22\\Controller\\Index\\Index' => 'Test22\\Test22\\Controller\\Index\\Index\\Interceptor',
+    'Testlicious\\AiSeoOptimizer\\Console\\Command\\ScanProductsCommand' => 'Testlicious\\AiSeoOptimizer\\Console\\Command\\ScanProductsCommand\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Index\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Audit\\Scan\\Interceptor',
     'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index' => 'Testlicious\\AiSeoOptimizer\\Controller\\Adminhtml\\Product\\Index\\Interceptor',

@@ -1,0 +1,22 @@
+[0;1;32m●[0m opensearch.service - OpenSearch
+     Loaded: loaded (]8;;file://centos-4gb-nbg1-2/usr/lib/systemd/system/opensearch.service\/usr/lib/systemd/system/opensearch.service]8;;\; [0;1;32menabled[0m; preset: [0;1;38:5:185mdisabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2026-07-13 10:29:41 UTC; 8s ago
+ Invocation: 3da849923b05404e853f804f1b8d4b1d
+       Docs: ]8;;https://opensearch.org/\https://opensearch.org/]8;;\
+   Main PID: 2553113 (java)
+      Tasks: 77[0;38;5;245m (limit: 47648)[0m
+     Memory: 1.5G (peak: 1.5G)
+        CPU: 29.946s
+     CGroup: /system.slice/opensearch.service
+             └─[0;38;5;245m2553113 /usr/share/opensearch/jdk/bin/java -Xshare:auto -Dopensearch.networkaddress.cache.ttl=60 -Dopensearch.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -XX:+ShowCodeDetailsInExceptionMessages -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dio.netty.allocator.numDirectArenas=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.security.manager=allow -Djava.locale.providers=SPI,COMPAT -Xms1g -Xmx1g -XX:+UseG1GC -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30 -Djava.io.tmpdir=/tmp/opensearch-11298691202508121910 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/lib/opensearch -XX:ErrorFile=/var/log/opensearch/hs_err_pid%p.log "-Xlog:gc*,gc+age=trace,safepoint:file=/var/log/opensearch/gc.log:utctime,pid,tags:filecount=32,filesize=64m" -Djava.security.manager=allow --add-modules=jdk.incubator.vector -Djava.util.concurrent.ForkJoinPool.common.threadFactory=org.opensearch.secure_sm.SecuredForkJoinWorkerThreadFactory -XX:MaxDirectMemorySize=536870912 -Dopensearch.path.home=/usr/share/opensearch -Dopensearch.path.conf=/etc/opensearch -Dopensearch.distribution.type=rpm -Dopensearch.bundled_jdk=true -cp "/usr/share/opensearch/lib/*" org.opensearch.bootstrap.OpenSearch -p /var/run/opensearch/opensearch.pid --quiet[0m
+
+Jul 13 10:29:32 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: System::setSecurityManager has been called by org.opensearch.bootstrap.OpenSearch (file:/usr/share/opensearch/lib/opensearch-2.19.4.jar)
+Jul 13 10:29:32 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: Please consider reporting this to the maintainers of org.opensearch.bootstrap.OpenSearch
+Jul 13 10:29:32 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: System::setSecurityManager will be removed in a future release
+Jul 13 10:29:33 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: Jul 13, 2026 10:29:33 AM sun.util.locale.provider.LocaleProviderAdapter <clinit>
+Jul 13 10:29:33 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: COMPAT locale provider will be removed in a future release
+Jul 13 10:29:33 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: A terminally deprecated method in java.lang.System has been called
+Jul 13 10:29:33 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: System::setSecurityManager has been called by org.opensearch.bootstrap.Security (file:/usr/share/opensearch/lib/opensearch-2.19.4.jar)
+Jul 13 10:29:33 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: Please consider reporting this to the maintainers of org.opensearch.bootstrap.Security
+Jul 13 10:29:33 centos-4gb-nbg1-2 systemd-entrypoint[2553113]: WARNING: System::setSecurityManager will be removed in a future release
+Jul 13 10:29:42 centos-4gb-nbg1-2 systemd[1]: Started opensearch.service - OpenSearch.

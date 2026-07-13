@@ -24,4 +24,14 @@
 		<argument name="resourceModel" xsi:type="string">Testlicious\AiSeoOptimizer\Model\ResourceModel\Suggestion</argument>
 	</arguments>
 </virtualType>
+<type name="Magento\Framework\Console\CommandListInterface">
+	<arguments>
+		<argument name="commands" xsi:type="array">
+			<item name="trstlicious_aiseo_scan_products"
+				xsi:type="object">
+				Testlicious\AiSeoOptimizer\Console\Command\ScanProductsCommand
+		</item>
+	</argument>
+</arguments>
+</type>
 </config>

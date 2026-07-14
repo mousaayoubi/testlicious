@@ -19,24 +19,28 @@ public function __construct(
 	public function execute(): void
 	{
 	if (!$this->config->isEnabled()) {
-	return ;
+		$this->logger->info(
+			'AI SEO scheduled product scan skipped because the module is disabled.'
+		);
+		return ;
 	}
 
-	$storeId = 0;
-	$limit = max(
-		1,
-		$this->config->getMaxBatchSize($storeId)
+	if (!$this->config->isCronEnabled()) {
+	$this->logger->info(
+		'AI SEO scheduled product scan skipped because scheduled scanning is disabled.'
 	);
 
+	return;
+	}
+
+	$storeId = $this->config->getCronStoreId();
+	$limit = $this->config->getCronProductLimit();
+
 	try {
-	$result = $this->productSeoScanner->scan(
+	$scannedCount = $this->productSeoScanner->scan(
 		$storeId,
 		$limit
 	);
-
-	$scannedCount = is_array($result)
-		? count($result)
-		: (int) $result;
 
 	$this->logger->info(
 		'AI SEO scheduled product scan completed.',
@@ -51,6 +55,7 @@ public function __construct(
 		'AI SEO scheduled product scan failed.',
 		[
 			'store_id' => $storeId,
+			'limit' => $limit,
 			'exception' => $exception->getMessage(),
 		]
 	);

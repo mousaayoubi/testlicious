@@ -76,6 +76,7 @@
                        showInWebsite="1"
                        showInStore="1">
                     <label>Max Products Per Batch</label>
+                    <validate>required-entry validate-digits validate-greater-than-zero</validate>
                     <comment>Recommended: 10-50 depending on API rate limits.</comment>
                 </field>
 
@@ -110,6 +111,74 @@
                     <label>OpenAI API Key</label>
                     <comment>Enter your OpenAI API key. It will be stored encrypted.</comment>
                     <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+            </group>
+
+            <group id="cron"
+                   translate="label"
+                   sortOrder="30"
+                   showInDefault="1"
+                   showInWebsite="0"
+                   showInStore="0">
+                <label>Scheduled Product Scan</label>
+
+                <field id="enabled"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Enable Scheduled Scan</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable automatic product SEO scans through Magento cron.</comment>
+                </field>
+
+                <field id="schedule"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Cron Schedule</label>
+                    <validate>required-entry</validate>
+                    <comment>
+                        Cron expression used to schedule the scan. Example: 0 2 * * * runs every day at 2:00 AM.
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="store_id"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Store ID</label>
+                    <validate>required-entry validate-digits validate-zero-or-greater</validate>
+                    <comment>Magento store view ID used when scanning products.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="product_limit"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Product Limit</label>
+                    <validate>required-entry validate-digits validate-greater-than-zero</validate>
+                    <comment>Maximum number of products scanned during each scheduled run.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
                 </field>
             </group>
         </section>

@@ -5,7 +5,7 @@
 	<job name="testlicious_aiseo_scan_products"
 		instance="Testlicious\AiSeoOptimizer\Cron\ScanProducts"
 		method="execute">
-	<schedule>0 2 * * * </schedule>
+	<config_path>aiseo_optimizer/cron/schedule</config_path>
 </job>
 </group>
 </config>

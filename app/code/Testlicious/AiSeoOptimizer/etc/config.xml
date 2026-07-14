@@ -13,7 +13,13 @@
             </general>
             <openai>
                 <api_key></api_key>
-            </openai>
+	</openai>
+	<cron>
+		<enabled>1</enabled>
+		<schedule>0 2 * * *</schedule>
+		<store_id>0</store_id>
+		<product_limit>20</product_limit>
+	</cron>
         </aiseo_optimizer>
     </default>
 </config>

@@ -17,6 +17,12 @@ class Config
 
 	private const XML_PATH_MAX_BATCH_SIZE = 'aiseo_optimizer/general/max_batch_size';
 
+	private const XML_PATH_CRON_ENABLED = 'aiseo_optimizer/cron/enabled';
+
+	private const XML_PATH_CRON_STORE_ID = 'aiseo_optimizer/cron/store_id';
+
+	private const XML_PATH_CRON_PRODUCT_LIMIT = 'aiseo_optimizer/cron/product_limit';
+
 	public function __construct(
 		private readonly ScopeConfigInterface $scopeConfig
 	) {
@@ -83,5 +89,31 @@ class Config
 			$storeId
 		)
 	);
+	}
+
+	public function isCronEnabled(): bool
+	{
+	return $this->scopeConfig->isSetFlag(
+		self::XML_PATH_CRON_ENABLED,
+		ScopeInterface::SCOPE_STORE
+	);
+	}
+
+	public function getCronStoreId(): int
+	{
+	return (int)$this->scopeConfig->getValue(
+		self::XML_PATH_CRON_STORE_ID,
+		ScopeInterface::SCOPE_STORE
+	);
+	}
+
+	public function getCronProductLimit(): int
+	{
+	$limit = (int)$this->scopeConfig->getValue(
+		self::XML_PATH_CRON_PRODUCT_LIMIT,
+		ScopeInterface::SCOPE_STORE
+	);
+
+	return $limit > 0 ? $limit : $this->getMaxBatchSize();
 	}
 }

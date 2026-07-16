@@ -267140,6 +267140,29 @@ Line: %line%
         '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult',
       ),
     ),
+    'Testlicious\\AiSeoOptimizer\\Service\\AutomaticSuggestionProcessor' => 
+    array (
+      'config' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\Config',
+      ),
+      'auditCollectionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\ProductSeoResult\\CollectionFactory',
+      ),
+      'suggestionCollectionFactory' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Model\\ResourceModel\\Suggestion\\CollectionFactory',
+      ),
+      'aiSuggestionGenerator' => 
+      array (
+        '_i_' => 'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator',
+      ),
+      'logger' => 
+      array (
+        '_i_' => 'Magento\\Framework\\Logger\\LoggerProxy',
+      ),
+    ),
     'Testlicious\\AiSeoOptimizer\\Service\\GenerationLogger' => 
     array (
       'generationLogFactory' => 

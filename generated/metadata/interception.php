@@ -20742,6 +20742,7 @@
   'Testlicious\\AiSeoOptimizer\\Model\\Suggestion' => false,
   'Testlicious\\AiSeoOptimizer\\Model\\SuggestionFactory' => false,
   'Testlicious\\AiSeoOptimizer\\Service\\AiSuggestionGenerator' => false,
+  'Testlicious\\AiSeoOptimizer\\Service\\AutomaticSuggestionProcessor' => false,
   'Testlicious\\AiSeoOptimizer\\Service\\GenerationLogger' => false,
   'Testlicious\\AiSeoOptimizer\\Service\\OpenAiClient' => false,
   'Testlicious\\AiSeoOptimizer\\Service\\SeoPromptBuilder' => false,

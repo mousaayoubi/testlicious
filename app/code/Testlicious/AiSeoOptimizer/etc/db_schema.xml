@@ -21,12 +21,6 @@
             <column name="audit_id"/>
         </constraint>
 
-        <index referenceId="TESTLICIOUS_AISEO_AUDIT_ENTITY" indexType="btree">
-            <column name="entity_type"/>
-            <column name="entity_id"/>
-            <column name="store_id"/>
-        </index>
-
         <index referenceId="TESTLICIOUS_AISEO_AUDIT_SCORE" indexType="btree">
             <column name="seo_score"/>
         </index>
